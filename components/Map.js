@@ -1,13 +1,21 @@
 import { useEffect, useState } from 'react'
-import { GoogleMap, LoadScriptNext, Marker } from '@react-google-maps/api'
+import { motion, AnimatePresence } from 'framer-motion'
+import {
+  GoogleMap,
+  LoadScriptNext,
+  Marker,
+  OverlayView,
+} from '@react-google-maps/api'
+import { X } from 'react-feather'
 
 export default () => {
-  const [pos, setPos] = useState()
+  const [overlay, setOverlay] = useState(false)
+  const [pos, setPos] = useState({})
 
   const getPos = () => {
     fetch(
       'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-        'Kleinsgade 6' +
+        'Kleinsgade 6, 1633, København V' +
         '&key=' +
         process.env.GOOGLE_MAPS_API_KEY
     )
@@ -22,6 +30,7 @@ export default () => {
   useEffect(() => {
     getPos()
   }, [])
+
   if (pos)
     return (
       <LoadScriptNext googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY}>
@@ -30,7 +39,38 @@ export default () => {
           zoom={12}
           center={pos}
         >
-          <Marker position={pos} />
+          <AnimatePresence>
+            {overlay && (
+              <OverlayView
+                position={overlay}
+                mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: -28 }}
+                  animate={{ opacity: 1, y: -36 }}
+                  exit={{ opacity: 0, y: -32 }}
+                  className="relative flex justify-center"
+                >
+                  <div className="absolute bottom-0 bg-white rounded px-16 py-8">
+                    <button
+                      type="button"
+                      onClick={() => setOverlay(false)}
+                      className="absolute top-0 right-0 text-gray-500 m-2"
+                    >
+                      <X className="text-sm" />
+                    </button>
+                    <div className="absolute inset-x-0 bottom-0 flex justify-center">
+                      <div
+                        style={{ transform: 'rotate(45deg)' }}
+                        className="bg-white rounded-sm p-2 -mb-1"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              </OverlayView>
+            )}
+          </AnimatePresence>
+          <Marker position={pos} onClick={() => setOverlay(pos)} />
         </GoogleMap>
       </LoadScriptNext>
     )
