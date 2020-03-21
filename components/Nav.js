@@ -23,14 +23,7 @@ export default () => (
         <NavLink href="/map" label="Map" />
         <NavLink href="/about" label="About" />
       </div>
-      <a
-        href="https://airtable.com/shrtTiPoFHQ5L8nRt"
-        target="_blank"
-        rel="noopener"
-        className="hidden md:inline-block font-medium mx-3"
-      >
-        Submit your restaurant
-      </a>
+      <NavLink href="/submit" label="Submit your restaurant" />
     </div>
   </nav>
 )
