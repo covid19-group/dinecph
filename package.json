@@ -13,6 +13,7 @@
     "@svgr/webpack": "^4.3.3",
     "@tailwindcss/custom-forms": "^0.2.1",
     "cssnano": "^4.1.10",
+    "dotenv": "^8.2.0",
     "framer-motion": "^1.10.0",
     "gray-matter": "^4.0.2",
     "next": "^9.3.1",
