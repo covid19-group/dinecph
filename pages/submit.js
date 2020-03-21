@@ -10,10 +10,10 @@ export default () => (
     <main className="px-3 py-16">
       <div className="max-w-6xl flex mx-auto">
         <div className="flex-auto md:pt-16">
-          <h2 class="font-extrabold text-2xl sm:text-3xl leading-none mb-6">
+          <h2 className="font-extrabold text-2xl sm:text-3xl leading-none mb-6">
             Submit your restaurant
           </h2>
-          <p class="max-w-xl text-gray-700 text-lg sm:text-xl mb-8">
+          <p className="max-w-xl text-gray-700 text-lg sm:text-xl mb-8">
             Your local restaurants are hurt by the current crisis—but they're
             still cooking! Help them stay alive by getting take away from the
             best restaurants in Copenhagen.

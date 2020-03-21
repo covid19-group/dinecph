@@ -5,7 +5,7 @@ export default () => {
     <LoadScriptNext googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY}>
       <GoogleMap
         mapContainerClassName="h-full rounded"
-        zoom={11}
+        zoom={12}
         center={{
           lat: 55.6820377,
           lng: 12.5559868,

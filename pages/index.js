@@ -10,12 +10,12 @@ export default () => (
     <main className="px-3 py-16">
       <div className="max-w-6xl flex items-center mx-auto">
         <div className="flex-auto">
-          <h1 class="font-extrabold text-4xl sm:text-5xl leading-none mb-6">
+          <h1 className="font-extrabold text-4xl sm:text-5xl leading-none mb-6">
             Support Copenhagen restaurants by
-            <br class="hidden sm:inline" />
-            <span class="text-blue-600"> getting take-away</span>
+            <br className="hidden sm:inline" />
+            <span className="text-blue-600"> getting take-away</span>
           </h1>
-          <p class="max-w-xl text-gray-700 text-lg sm:text-xl mb-8">
+          <p className="max-w-xl text-gray-700 text-lg sm:text-xl mb-8">
             Your local restaurants are hurt by the current crisis—but they're
             still cooking! Help them stay alive by getting take away from the
             best restaurants in Copenhagen.
