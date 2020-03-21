@@ -1,0 +1,9 @@
+/* Webfont: OpticianSans-Regular */
+@font-face {
+  font-family: 'Optician Sans';
+  src: url('optician.woff2') format('woff2'),
+    url('optician.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}

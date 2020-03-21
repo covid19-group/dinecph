@@ -17,7 +17,7 @@ export default () => {
               >
                 🍷
               </span>
-              <h2 className="hidden sm:inline-block font-extrabold text-lg">
+              <h2 className="hidden sm:inline-block font-extrabold text-2xl">
                 Dine CPH
               </h2>
             </a>

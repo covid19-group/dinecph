@@ -1,3 +1,6 @@
+@import url('https://rsms.me/inter/inter.css');
+@import url('/optician/optician.css');
+
 /* purgecss start ignore */
 
 @tailwind base;
@@ -5,8 +8,13 @@
 /* Boilerplate */
 
 html {
-  @apply antialiased font-sans leading-tight text-navy smooth-scroll;
+  @apply antialiased font-inter leading-tight text-navy smooth-scroll;
   font-feature-settings: 'liga' 1;
+}
+@supports (font-variation-settings: normal) {
+  html {
+    @apply font-inter-var;
+  }
 }
 body {
   @apply bg-sand-light m-0;
@@ -32,6 +40,14 @@ button {
 a:focus,
 button:focus {
   @apply outline-none shadow-outline;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-optician tracking-tight;
 }
 p {
   @apply leading-normal;
