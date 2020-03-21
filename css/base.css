@@ -45,16 +45,16 @@ p {
   @apply font-medium leading-none text-center rounded-lg px-4 py-2;
 }
 .btn-primary {
-  @apply text-gray-100 bg-gray-900;
+  @apply text-white bg-blue-600;
 }
 .btn-primary:hover {
-  @apply bg-gray-800;
+  @apply bg-blue-700;
 }
 .btn-secondary {
-  @apply bg-gray-200;
+  @apply text-blue-700 bg-blue-200;
 }
 .btn-secondary:hover {
-  @apply bg-gray-300;
+  @apply bg-blue-300;
 }
 
 /* purgecss end ignore */

@@ -14,7 +14,7 @@ export default () => (
           <h1 class="font-extrabold text-4xl sm:text-5xl leading-none mb-6">
             Support Copenhagen restaurants by
             <br class="hidden sm:inline" />
-            <span class="text-indigo-600"> getting take-away</span>
+            <span class="text-blue-600"> getting take-away</span>
           </h1>
           <p class="max-w-xl text-gray-700 text-lg sm:text-xl mb-8">
             Your local restaurants are hurt by the current crisis—but they're
@@ -24,9 +24,6 @@ export default () => (
           <div className="-m-2">
             <Link href="/map">
               <a className="h-12 btn btn-primary inline-flex items-center m-2">
-                <span role="img" aria-label="Map pin" className="text-xl mr-1">
-                  📍
-                </span>
                 Browse restaurants
               </a>
             </Link>

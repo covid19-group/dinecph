@@ -23,7 +23,7 @@ export default () => (
             href="https://airtable.com/shrtTiPoFHQ5L8nRt"
             target="_blank"
             rel="noopener"
-            className="h-12 btn btn-secondary inline-flex items-center"
+            className="h-12 btn btn-primary inline-flex items-center"
           >
             Submit your restaurant
           </a>
