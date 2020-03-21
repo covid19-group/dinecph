@@ -1,8 +1,8 @@
 import Head from 'next/head'
 
 export default () => {
-  const title = 'Next boilerplate'
-  const description = 'Next boilerplate'
+  const title = 'CPH restaurants'
+  const description = 'CPH restaurants'
   return (
     <Head>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
