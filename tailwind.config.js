@@ -1,6 +1,11 @@
 module.exports = {
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        '96': '24rem',
+        // '128': '32rem',
+      },
+    },
     customForms: theme => ({
       default: {
         'checkbox, input, multiselect, radio, select, textarea': {

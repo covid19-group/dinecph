@@ -9,7 +9,7 @@ html {
   font-feature-settings: 'liga' 1;
 }
 body {
-  @apply bg-gray-300 m-0;
+  @apply bg-gray-100 m-0;
 }
 svg {
   height: 1em;
@@ -42,13 +42,19 @@ p {
 /* Custom components */
 
 .btn {
-  @apply font-medium leading-none text-center border-2 rounded px-3 py-2;
+  @apply font-medium leading-none text-center rounded-lg px-4 py-2;
 }
 .btn-primary {
-  @apply text-gray-300 bg-gray-900 border-gray-900;
+  @apply text-gray-100 bg-gray-900;
 }
 .btn-primary:hover {
-  @apply bg-gray-800 border-gray-800;
+  @apply bg-gray-800;
+}
+.btn-secondary {
+  @apply bg-gray-200;
+}
+.btn-secondary:hover {
+  @apply bg-gray-300;
 }
 
 /* purgecss end ignore */
