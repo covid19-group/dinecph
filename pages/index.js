@@ -15,7 +15,7 @@ export default () => (
             <br className="hidden sm:inline" />
             <span className="text-blue-600"> getting take-away</span>
           </h1>
-          <p className="max-w-xl text-gray-700 text-lg sm:text-xl mb-8">
+          <p className="max-w-xl text-navy-light text-lg sm:text-xl mb-8">
             Your local restaurants are hurt by the current crisis—but they're
             still cooking! Help them stay alive by getting take away from the
             best restaurants in Copenhagen.
@@ -33,7 +33,7 @@ export default () => (
             </Link>
           </div>
         </div>
-        <div className="flex-shrink-0 hidden md:block w-96 h-96 bg-gray-200 rounded-lg" />
+        <div className="flex-shrink-0 hidden md:block w-96 h-96 bg-sand" />
       </div>
     </main>
   </>

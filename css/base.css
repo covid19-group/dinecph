@@ -5,11 +5,11 @@
 /* Boilerplate */
 
 html {
-  @apply antialiased font-sans leading-tight text-gray-900 smooth-scroll;
+  @apply antialiased font-sans leading-tight text-navy smooth-scroll;
   font-feature-settings: 'liga' 1;
 }
 body {
-  @apply bg-gray-100 m-0;
+  @apply bg-sand-light m-0;
 }
 svg {
   height: 1em;
@@ -27,7 +27,7 @@ a {
 }
 a,
 button {
-  @apply rounded-sm transition duration-150 ease-in-out;
+  @apply transition duration-150 ease-in-out;
 }
 a:focus,
 button:focus {
@@ -42,19 +42,13 @@ p {
 /* Custom components */
 
 .btn {
-  @apply font-medium leading-none text-center rounded-lg px-4 py-2;
+  @apply font-medium leading-none text-center px-4 py-2;
 }
 .btn-primary {
-  @apply text-white bg-blue-600;
-}
-.btn-primary:hover {
-  @apply bg-blue-700;
+  @apply text-white bg-navy;
 }
 .btn-secondary {
-  @apply text-blue-700 bg-blue-200;
-}
-.btn-secondary:hover {
-  @apply bg-blue-300;
+  @apply text-navy-light bg-teal;
 }
 
 /* purgecss end ignore */

@@ -34,11 +34,7 @@ export default () => {
   if (pos)
     return (
       <LoadScriptNext googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY}>
-        <GoogleMap
-          mapContainerClassName="h-full rounded"
-          zoom={12}
-          center={pos}
-        >
+        <GoogleMap mapContainerClassName="h-full" zoom={12} center={pos}>
           <AnimatePresence>
             {overlay && (
               <OverlayView
@@ -51,18 +47,18 @@ export default () => {
                   exit={{ opacity: 0, y: -32 }}
                   className="relative flex justify-center"
                 >
-                  <div className="absolute bottom-0 bg-white rounded px-16 py-8">
+                  <div className="absolute bottom-0 bg-sand-light px-32 py-16">
                     <button
                       type="button"
                       onClick={() => setOverlay(false)}
-                      className="absolute top-0 right-0 text-gray-500 m-2"
+                      className="absolute top-0 right-0 text-navy-light m-2"
                     >
-                      <X className="text-sm" />
+                      <X className="text-base" />
                     </button>
                     <div className="absolute inset-x-0 bottom-0 flex justify-center">
                       <div
                         style={{ transform: 'rotate(45deg)' }}
-                        className="bg-white rounded-sm p-2 -mb-1"
+                        className="bg-sand-light p-2 -mb-1"
                       />
                     </div>
                   </div>
