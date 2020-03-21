@@ -1,0 +1,62 @@
+/* purgecss start ignore */
+
+@tailwind base;
+
+/* Boilerplate */
+
+html {
+  @apply antialiased font-sans leading-tight text-gray-900 smooth-scroll;
+  font-feature-settings: 'liga' 1;
+}
+body {
+  @apply bg-gray-300 m-0;
+}
+svg {
+  height: 1em;
+  width: auto;
+}
+svg * {
+  @apply stroke-current;
+}
+svg.fill * {
+  @apply fill-current;
+  stroke: none;
+}
+a {
+  @apply inline-block;
+}
+a,
+button {
+  @apply rounded-sm transition duration-150 ease-in-out;
+}
+a:focus,
+button:focus {
+  @apply outline-none shadow-outline;
+}
+p {
+  @apply leading-normal;
+}
+
+@tailwind components;
+
+/* Custom components */
+
+.btn {
+  @apply font-medium leading-none text-center border-2 rounded px-3 py-2;
+}
+.btn-primary {
+  @apply text-gray-300 bg-gray-900 border-gray-900;
+}
+.btn-primary:hover {
+  @apply bg-gray-800 border-gray-800;
+}
+
+/* purgecss end ignore */
+
+@tailwind utilities;
+
+/* Custom utilities */
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}

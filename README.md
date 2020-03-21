@@ -1,2 +1,1 @@
-# covid-restaurants
- 
+# techvaernet-restaurants
