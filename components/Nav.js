@@ -25,10 +25,12 @@ export default () => {
           <NavLink href="/map" label="Map" />
           <NavLink href="/about" label="About" />
         </div>
-        <NavLink
-          href="/submit"
-          label={breakpoint.sm ? 'Submit your restaurant' : 'Submit'}
-        />
+        <div className="-mx-3">
+          <NavLink
+            href="/submit"
+            label={breakpoint.sm ? 'Submit your restaurant' : 'Submit'}
+          />
+        </div>
       </div>
     </nav>
   )

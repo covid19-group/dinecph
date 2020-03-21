@@ -23,6 +23,7 @@ module.exports = {
         outline: '0 0 0 2px #f582ae',
       },
       spacing: {
+        '80': '20rem',
         '96': '24rem',
         // '128': '32rem',
       },

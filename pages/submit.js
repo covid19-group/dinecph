@@ -9,9 +9,9 @@ export default () => (
     <Head />
     <div className="min-h-screen flex flex-col">
       <Nav />
-      <main className="px-3 py-16">
+      <main className="flex-auto px-3 py-16">
         <div className="max-w-6xl flex mx-auto">
-          <div className="flex-auto md:pt-16">
+          <div className="flex-auto md:pt-16 md:pr-16">
             <h2 className="font-extrabold text-2xl sm:text-3xl leading-none mb-6">
               Submit your restaurant
             </h2>
@@ -29,7 +29,7 @@ export default () => (
               Submit your restaurant
             </a>
           </div>
-          <div className="flex-shrink-0 hidden md:block w-96 h-96 bg-sand" />
+          <div className="flex-shrink-0 hidden md:block w-80 lg:w-96 h-80 lg:h-96 bg-sand" />
         </div>
       </main>
       <Footer />

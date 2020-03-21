@@ -11,7 +11,7 @@ export default () => (
       <Nav />
       <main className="flex-auto px-3 pt-16 pb-24">
         <div className="max-w-6xl flex items-center mx-auto">
-          <div className="flex-auto">
+          <div className="flex-auto md:pr-16">
             <h1 className="font-extrabold text-4xl sm:text-5xl leading-none mb-6">
               Support Copenhagen restaurants by
               <br className="hidden sm:inline" />
@@ -35,7 +35,7 @@ export default () => (
               </Link>
             </div>
           </div>
-          <div className="flex-shrink-0 hidden md:block w-96 h-96 bg-sand" />
+          <div className="flex-shrink-0 hidden md:block w-80 lg:w-96 h-80 lg:h-96 bg-sand" />
         </div>
       </main>
       <Footer />

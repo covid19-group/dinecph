@@ -7,7 +7,7 @@ export default () => (
     <Head />
     <div className="h-screen flex flex-col">
       <Nav />
-      <main className="flex-auto px-3 pb-3">
+      <main className="flex-auto">
         <Map />
       </main>
     </div>
