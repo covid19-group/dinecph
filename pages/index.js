@@ -15,7 +15,7 @@ export default () => (
             <h1 className="font-extrabold text-4xl sm:text-5xl leading-none mb-6">
               Support Copenhagen restaurants by
               <br className="hidden sm:inline" />
-              <span className="text-blue-600"> getting take-away</span>
+              <span className="text-pink"> getting take-away</span>
             </h1>
             <p className="max-w-xl text-navy-light text-lg sm:text-xl mb-8">
               Your local restaurants are hurt by the current crisis—but they're
