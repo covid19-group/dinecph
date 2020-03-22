@@ -9,9 +9,9 @@ export default () => (
     <Head />
     <div className="min-h-screen flex flex-col">
       <Nav />
-      <main className="flex-auto px-3 pt-16 pb-24">
-        <div className="max-w-6xl flex items-center mx-auto">
-          <div className="flex-auto md:pr-16">
+      <main className="flex-auto py-16 md:pt-8 lg:pt-0">
+        <div className="max-w-6xl flex items-center overflow-hidden mx-auto">
+          <div className="flex-auto w-128 flex-shrink-0 pl-3 md:pr-16">
             <h1 className="max-w-xl font-extrabold text-4xl sm:text-5xl leading-none mb-6">
               Støt restauranter i København ved at{' '}
               <br className="hidden sm:inline" />
@@ -36,9 +36,9 @@ export default () => (
             </div>
           </div>
           <img
-            src="/assets/hero-illu.png"
+            src="/assets/hero-illu-alt.png"
             alt="Vin og sjov"
-            className="w-128 h-128"
+            className="hidden md:block w-128 h-128"
           />
         </div>
       </main>
