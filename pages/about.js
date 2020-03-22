@@ -14,7 +14,7 @@ export default () => (
           <h2 className="font-extrabold text-2xl sm:text-3xl leading-none mb-6">
             Om os
           </h2>
-          <p className="max-w-xl text-navy-light text-lg sm:text-xl mb-4">
+          <p className="max-w-xl text-navy-light text-lg mb-4">
             Covid-19 krisen har ramt restaurant-scenen i København. Mange af dem
             er begyndt at tilbyde take-away som en respons. Vi har lavet den her
             side for at sprede ordet – inspireret af{' '}
@@ -23,9 +23,16 @@ export default () => (
             </a>
             .
           </p>
-          <p className="max-w-xl text-navy-light text-lg sm:text-xl">
-            Kontakt os på{' '}
+          <p className="max-w-xl text-navy-light text-lg mb-4">
+            De fleste henvendelser til{' '}
             <a href="mailto:martin@pelion.app">martin@pelion.app</a>.
+          </p>
+          <p className="max-w-xl text-navy-light text-lg">
+            Ris og ros til hjemmesiden til{' '}
+            <a href="mailto:sebastianwinther@gmail.com">
+              sebastianwinther@gmail.com
+            </a>
+            .
           </p>
         </div>
       </main>
