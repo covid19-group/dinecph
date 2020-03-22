@@ -8,6 +8,8 @@ import {
 } from '@react-google-maps/api'
 import { X } from 'react-feather'
 
+const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY
+
 export default () => {
   const [tooltip, setTooltip] = useState(false)
   const [pos, setPos] = useState(undefined)
@@ -17,7 +19,7 @@ export default () => {
       'https://maps.googleapis.com/maps/api/geocode/json?address=' +
         'Ryesgade 25, Copenhagen N 2200, DK' +
         '&key=' +
-        process.env.GOOGLE_MAPS_API_KEY
+        googleMapsApiKey
     )
       .then(res => res.json())
       .then(res => {
@@ -33,7 +35,7 @@ export default () => {
 
   if (pos)
     return (
-      <LoadScriptNext googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY}>
+      <LoadScriptNext googleMapsApiKey={googleMapsApiKey}>
         <GoogleMap
           center={pos}
           clickableIcons={false}

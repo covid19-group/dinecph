@@ -6,7 +6,7 @@ export default () => {
   return (
     <footer className="px-3">
       <div className="border-t-2 border-sand max-w-6xl py-12 mx-auto">
-        <p>An initiative by Techværnet</p>
+        <p>Et initiativ fra Techværnet</p>
       </div>
     </footer>
   )
