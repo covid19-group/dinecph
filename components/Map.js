@@ -32,7 +32,10 @@ export default ({ restaurants }) => {
           {restaurants.map(restaurant => {
             const position =
               restaurant.positionData.results[0].geometry.location
-            const display = restaurant['Display on website?'] || false
+            const display =
+              process.env.NODE_ENV === 'production'
+                ? restaurant.display || false
+                : true
             if (display)
               return (
                 <Marker
@@ -53,12 +56,12 @@ export default ({ restaurants }) => {
 }
 
 const Tooltip = ({ tooltip, setTooltip }) => {
-  const name = tooltip['Name'] || undefined
-  const description = tooltip['Brief description'] || undefined
-  const offerings = tooltip['What do you offer?'] || undefined
-  const delivery = tooltip['Do you deliver?'] || false
-  const phone = tooltip['Phone #'] || undefined
-  const url = tooltip['Order link'] || undefined
+  const name = tooltip.name || undefined
+  const description = tooltip.description || undefined
+  const offerings = tooltip.offerings || undefined
+  const delivery = tooltip.delivery || false
+  const phone = tooltip.phone || undefined
+  const url = tooltip.url || undefined
   const position = tooltip && tooltip.positionData.results[0].geometry.location
   return (
     <AnimatePresence>

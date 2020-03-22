@@ -42,7 +42,7 @@ export async function getStaticProps() {
     i++
     const res = await fetch(
       'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-        restaurant.Address +
+        restaurant.address +
         '&key=' +
         googleMapsApiKey
     ).catch(err => {
