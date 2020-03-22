@@ -21,9 +21,6 @@ export default () => (
               Dine lokale spisesteder er ramt af den nuværende krise—men de
               laver stadig mad! Hjælp dem til at forblive åbne ved at købe
               take-away fra de bedste restauranter i København.
-              {
-                // test
-              }
             </p>
             <div className="pr-3 sm:pr-0 sm:-m-2">
               <Link href="/map">
