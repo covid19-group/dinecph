@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default () => {
+export default ({ children }) => {
   const title = 'Dine CPH'
   const description = 'Dine CPH'
   return (
@@ -18,6 +18,7 @@ export default () => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content="/og-image.png" />
+      {children}
     </Head>
   )
 }

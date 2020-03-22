@@ -10,7 +10,7 @@ import { X } from 'react-feather'
 
 export default () => {
   const [tooltip, setTooltip] = useState(false)
-  const [pos, setPos] = useState({})
+  const [pos, setPos] = useState(undefined)
 
   const getPos = () => {
     fetch(
@@ -22,7 +22,6 @@ export default () => {
       .then(res => res.json())
       .then(res => {
         setPos(res.results[0].geometry.location)
-        setTooltip(res.results[0].geometry.location)
       })
       .catch(err => {
         console.log(err)
@@ -36,9 +35,10 @@ export default () => {
     return (
       <LoadScriptNext googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY}>
         <GoogleMap
+          center={pos}
+          clickableIcons={false}
           mapContainerClassName="h-full border border-sand"
           zoom={12}
-          center={pos}
         >
           <Tooltip tooltip={tooltip} setTooltip={setTooltip} />
           <Marker position={pos} onClick={() => setTooltip(pos)} />
@@ -67,7 +67,7 @@ const Tooltip = ({ tooltip, setTooltip }) => (
               onClick={() => setTooltip(false)}
               className="absolute top-0 right-0 text-navy-light m-2"
             >
-              <X className="text-base" />
+              <X className="text-lg" />
             </button>
 
             <h3 className="text-base mb-2">Tigermom</h3>

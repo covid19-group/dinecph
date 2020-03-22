@@ -16,12 +16,10 @@ export default () => (
               About
             </h2>
             <p className="max-w-xl text-navy-light text-lg sm:text-xl mb-2">
-              Your local restaurants are hurt by the current crisis—but they're
-              still cooking! Help them stay alive by getting take away from the
-              best restaurants in Copenhagen.
-            </p>
-            <p className="max-w-xl text-navy-light text-lg sm:text-xl">
-              Contact us at
+              The Covid-19 crisis has hit the restaurant scene of Copenhagen.
+              Many of them have started doing take-away as a response. We
+              created this site as a means to spread the word. Contact us at{' '}
+              <a href="mailto:martin@pelion.app">martin@pelion.app</a>.
             </p>
           </div>
           <div className="flex-shrink-0 hidden md:block w-80 lg:w-96 h-80 lg:h-96 bg-sand" />
