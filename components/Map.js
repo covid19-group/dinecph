@@ -15,8 +15,8 @@ const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY
 export default ({ restaurants }) => {
   const [tooltip, setTooltip] = useState(false)
   const [copenhagen] = useState({
-    lat: 55.6820377,
-    lng: 12.5559868,
+    lat: 55.6836692,
+    lng: 12.571585,
   })
 
   if (restaurants)
@@ -27,7 +27,7 @@ export default ({ restaurants }) => {
           clickableIcons={false}
           mapContainerClassName="border-t border-sand"
           mapContainerStyle={{ height: 'calc( 100vh - 85px)' }}
-          zoom={12}
+          zoom={13}
         >
           <Tooltip tooltip={tooltip} setTooltip={setTooltip} />
           {restaurants.map(restaurant => {

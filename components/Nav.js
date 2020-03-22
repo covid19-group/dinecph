@@ -22,7 +22,7 @@ export default () => {
               </h2>
             </a>
           </Link>
-          <NavLink href="/map" label="Kort" />
+          <NavLink href="/map" label="Restauranter" />
           <NavLink href="/about" label="Om os" />
         </div>
         <div className="-mx-3">

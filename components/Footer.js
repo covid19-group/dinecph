@@ -6,7 +6,7 @@ export default () => {
   return (
     <footer className="px-3">
       <div className="border-t-2 border-sand max-w-6xl py-12 mx-auto">
-        <p>
+        <p className="mb-3">
           Et initiativ af{' '}
           {
             // <a href="https://techvaernet.dk" target="_blank" rel="noopener">
@@ -30,6 +30,16 @@ export default () => {
             rel="noopener"
           >
             Sebastian Winther
+          </a>
+        </p>
+        <p>
+          It's open source&nbsp;⟶&nbsp;&nbsp;
+          <a
+            href="https://github.com/sjwinther/techvaernet-restaurants"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
           </a>
         </p>
       </div>

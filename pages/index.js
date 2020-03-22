@@ -26,11 +26,17 @@ export default () => (
               <Link href="/map">
                 <a className="w-full sm:w-auto h-12 btn btn-primary inline-flex items-center mb-3 sm:m-2">
                   Find restauranter
+                  <span className="inline sm:hidden flex-auto text-right">
+                    ⟶
+                  </span>
                 </a>
               </Link>
               <Link href="/submit">
                 <a className="w-full sm:w-auto h-12 btn btn-secondary inline-flex items-center sm:m-2">
                   Tilføj din restaurant
+                  <span className="inline sm:hidden flex-auto text-right">
+                    ⟶
+                  </span>
                 </a>
               </Link>
             </div>
