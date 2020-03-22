@@ -25,7 +25,8 @@ export default ({ restaurants }) => {
         <GoogleMap
           center={copenhagen}
           clickableIcons={false}
-          mapContainerClassName="h-full border border-sand"
+          mapContainerClassName="border-t border-sand"
+          mapContainerStyle={{ height: 'calc( 100vh - 85px)' }}
           zoom={12}
         >
           <Tooltip tooltip={tooltip} setTooltip={setTooltip} />
