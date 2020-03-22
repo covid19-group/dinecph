@@ -36,7 +36,7 @@ export default () => (
             </div>
           </div>
           <img
-            src="/assets/hero-illu.jpg"
+            src="/assets/hero-illu.png"
             alt="Vin og sjov"
             className="w-128 h-128"
           />
