@@ -14,11 +14,10 @@ const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY
 
 export default ({ restaurants }) => {
   const [tooltip, setTooltip] = useState(false)
-
-  const copenhagen = {
+  const [copenhagen] = useState({
     lat: 55.6820377,
     lng: 12.5559868,
-  }
+  })
 
   if (restaurants)
     return (
@@ -54,17 +53,18 @@ export default ({ restaurants }) => {
 }
 
 const Tooltip = ({ tooltip, setTooltip }) => {
-  const name = tooltip['Name']
-  const description = tooltip['Brief description']
-  const offerings = tooltip['What do you offer?']
+  const name = tooltip['Name'] || undefined
+  const description = tooltip['Brief description'] || undefined
+  const offerings = tooltip['What do you offer?'] || undefined
   const delivery = tooltip['Do you deliver?'] || false
-  const phone = tooltip['Phone #'] || false
-  const url = tooltip['Order link'] || false
+  const phone = tooltip['Phone #'] || undefined
+  const url = tooltip['Order link'] || undefined
+  const position = tooltip && tooltip.positionData.results[0].geometry.location
   return (
     <AnimatePresence>
       {tooltip && (
         <OverlayView
-          position={tooltip}
+          position={position}
           mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
         >
           <motion.div
@@ -82,18 +82,20 @@ const Tooltip = ({ tooltip, setTooltip }) => {
                 <X className="text-lg" />
               </button>
 
-              <h3 className="text-base mb-2">{name}</h3>
-              <p className="text-xs mb-3">{description}</p>
-              <ul className="-m-1 mb-2">
-                {offerings.map(label => (
-                  <li
-                    key={label}
-                    className="inline-block font-medium bg-sand px-2 py-1 m-1"
-                  >
-                    {label}
-                  </li>
-                ))}
-              </ul>
+              {name && <h3 className="text-base mb-2">{name}</h3>}
+              {description && <p className="text-xs mb-3">{description}</p>}
+              {offerings && !!offerings.length && (
+                <ul className="-m-1 mb-2">
+                  {offerings.map(label => (
+                    <li
+                      key={label}
+                      className="inline-block font-medium bg-sand px-2 py-1 m-1"
+                    >
+                      {label}
+                    </li>
+                  ))}
+                </ul>
+              )}
               {delivery && <div className="mb-2">✓ Delivery available</div>}
               {phone && <div className="mb-4">{phone}</div>}
               {url && (
