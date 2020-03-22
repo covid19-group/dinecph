@@ -1,8 +1,25 @@
+import { useContext } from 'react'
 import Link from 'next/link'
+import { LanguageContext } from './LanguageSelector'
 import useBreakpoint from '../hooks/useBreakpoint'
 
 export default () => {
   const breakpoint = useBreakpoint()
+  const { language } = useContext(LanguageContext)
+  const content = {
+    map: { 'da-DK': 'Restauranter', 'en-GB': 'Restaurants' },
+    about: { 'da-DK': 'Om os', 'en-GB': 'About' },
+    submit: {
+      'da-DK': {
+        sm: 'Tilføj',
+        else: 'Tilføj din restaurant',
+      },
+      'en-GB': {
+        sm: 'Add',
+        else: 'Add your restaurant',
+      },
+    },
+  }
   return (
     <nav className="px-3 py-6">
       <div className="max-w-6xl flex items-center mx-auto">
@@ -22,13 +39,13 @@ export default () => {
               </h2>
             </a>
           </Link>
-          <NavLink href="/map" label="Restauranter" />
-          <NavLink href="/about" label="Om os" />
+          <NavLink href="/map" label={content.map[language]} />
+          <NavLink href="/about" label={content.about[language]} />
         </div>
         <div className="-mx-3">
           <NavLink
             href="/submit"
-            label={breakpoint.sm ? 'Tilføj din restaurant' : 'Tilføj'}
+            label={content.submit[language][breakpoint.sm ? 'else' : 'sm']}
           />
         </div>
       </div>

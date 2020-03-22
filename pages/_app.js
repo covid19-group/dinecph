@@ -1,8 +1,13 @@
 // import App from 'next/app'
 import '../css/base.css'
+import { LanguageProvider } from '../components/LanguageSelector'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <LanguageProvider>
+      <Component {...pageProps} />
+    </LanguageProvider>
+  )
 }
 
 // Only uncomment this method if you have blocking data requirements for

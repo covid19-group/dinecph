@@ -3,7 +3,7 @@ import Head from 'next/head'
 export default ({ children }) => {
   const title = 'DINE CPH'
   const description =
-    'Dine lokale spisesteder er ramt af den nuværende krise—men de laver stadig mad! Hjælp dem til at forblive åbne ved at købe take-away fra de bedste restauranter i København.'
+    "Your local food joints are struggling during the current crisis — but they're still cooking! Help them keep the lights on, by getting take-out from the best restaurants in Copenhagen."
   return (
     <Head>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
