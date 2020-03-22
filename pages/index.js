@@ -22,14 +22,14 @@ export default () => (
               laver stadig mad! Hjælp dem til at forblive åbne ved at købe
               take-away fra de bedste restauranter i København.
             </p>
-            <div className="-m-2">
+            <div className="pr-3 sm:pr-0 sm:-m-2">
               <Link href="/map">
-                <a className="h-12 btn btn-primary inline-flex items-center m-2">
+                <a className="w-full sm:w-auto h-12 btn btn-primary inline-flex items-center mb-3 sm:m-2">
                   Find restauranter
                 </a>
               </Link>
               <Link href="/submit">
-                <a className="h-12 btn btn-secondary inline-flex items-center m-2">
+                <a className="w-full sm:w-auto h-12 btn btn-secondary inline-flex items-center sm:m-2">
                   Tilføj din restaurant
                 </a>
               </Link>

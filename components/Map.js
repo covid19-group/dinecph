@@ -117,7 +117,7 @@ const Tooltip = ({ tooltip, setTooltip }) => {
               {phone && <div className="mb-4">{phone}</div>}
               {url && (
                 <a
-                  href={url}
+                  href={url.includes('http') ? url : 'https://' + url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"
