@@ -26,7 +26,9 @@ export default ({ restaurants }) => {
                     restaurant.description &&
                     restaurant.url
                   )
-                    return <ListItem restaurant={restaurant} />
+                    return (
+                      <ListItem key={restaurant.name} restaurant={restaurant} />
+                    )
                 })}
               </ul>
             </div>
