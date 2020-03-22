@@ -15,6 +15,14 @@ export default () => {
           {
             // </a>
           }
+          {', '}
+          <a
+            href="https://shop.empiricalspirits.co/"
+            target="_blank"
+            rel="noopener"
+          >
+            Empirical Spirits
+          </a>
           {' og '}
           <a
             href="https://www.sebastianwinther.com"
