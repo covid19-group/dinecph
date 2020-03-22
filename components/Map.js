@@ -42,7 +42,7 @@ export default ({ restaurants }) => {
               process.env.NODE_ENV === 'production'
                 ? restaurant.display || false
                 : true
-            if (display)
+            if (position && display)
               return (
                 <Marker
                   position={position}
@@ -78,7 +78,7 @@ const Tooltip = ({ tooltip, setTooltip }) => {
     false
   return (
     <AnimatePresence>
-      {tooltip && (
+      {tooltip && position && (
         <OverlayView
           position={position}
           mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
