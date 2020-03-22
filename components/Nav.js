@@ -30,7 +30,7 @@ export default () => {
                 role="img"
                 aria-label="Wine glass"
                 style={{ transform: 'rotate(15deg) translateY(-2px)' }}
-                className="text-3xl sm:mr-4"
+                className="text-3xl sm:mr-3"
               >
                 🍷
               </span>
@@ -40,7 +40,9 @@ export default () => {
             </a>
           </Link>
           <NavLink href="/map" label={content.map[language]} />
-          <NavLink href="/about" label={content.about[language]} />
+          {breakpoint.sm && (
+            <NavLink href="/about" label={content.about[language]} />
+          )}
         </div>
         <div className="-mx-3">
           <NavLink

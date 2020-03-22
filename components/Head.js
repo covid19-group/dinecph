@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 export default ({ children }) => {
-  const title = 'DINE CPH'
+  const title = 'Dine CPH'
   const description =
     "Your local food joints are struggling during the current crisis — but they're still cooking! Help them keep the lights on, by getting take-out from the best restaurants in Copenhagen."
   return (
