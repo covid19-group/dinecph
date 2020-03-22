@@ -21,6 +21,7 @@ export default ({ restaurants }) => {
               <ul className="flex flex-wrap -m-3">
                 {restaurants.map(restaurant => {
                   if (
+                    restaurant.display &&
                     restaurant.name &&
                     restaurant.description &&
                     restaurant.url

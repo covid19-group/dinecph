@@ -38,11 +38,7 @@ export default ({ restaurants }) => {
               !!restaurant.positionData.results.length &&
               restaurant.positionData.results[0].geometry &&
               restaurant.positionData.results[0].geometry.location
-            const display =
-              process.env.NODE_ENV === 'production'
-                ? restaurant.display || false
-                : true
-            if (position && display)
+            if (restaurant.display && position)
               return (
                 <Marker
                   key={position}
