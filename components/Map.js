@@ -45,6 +45,7 @@ export default ({ restaurants }) => {
             if (position && display)
               return (
                 <Marker
+                  key={position}
                   position={position}
                   onClick={() => setTooltip(restaurant)}
                 />
