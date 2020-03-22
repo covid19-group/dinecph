@@ -13,14 +13,14 @@ export default () => {
       <Head />
       <div className="min-h-screen flex flex-col">
         <Nav />
-        <main className="flex-auto py-16 md:pt-8 lg:pt-0">
+        <main className="flex-auto pt-8 lg:pt-0 pb-16">
           <div className="max-w-6xl flex items-center md:overflow-hidden mx-auto">
-            <div className="flex-auto w-128 md:flex-shrink-0 pl-3 md:pr-16">
-              <h1 className="max-w-xl font-extrabold text-4xl sm:text-5xl leading-none mb-6">
+            <div className="flex-auto w-128 md:flex-shrink-0 px-3 md:pr-16">
+              <h1 className="max-w-xl font-extrabold text-3xl sm:text-5xl leading-none mb-6">
                 {content.titleBlue} <br className="hidden sm:inline" />
                 <span className="text-pink">{content.titlePink}</span>
               </h1>
-              <p className="max-w-xl text-navy-light text-lg sm:text-xl mb-8">
+              <p className="max-w-xl text-navy-light text-base sm:text-lg md:text-xl mb-8">
                 {content.description}
               </p>
               <div className="pr-3 sm:pr-0 sm:-m-2">

@@ -1,7 +1,10 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import Link from 'next/link'
-import { LanguageContext } from './LanguageSelector'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronDown, ChevronUp } from 'react-feather'
+
 import useBreakpoint from '../hooks/useBreakpoint'
+import { LanguageContext } from './LanguageSelector'
 
 export default () => {
   const breakpoint = useBreakpoint()
@@ -39,7 +42,7 @@ export default () => {
               </h2>
             </a>
           </Link>
-          <NavLink href="/map" label={content.map[language]} />
+          <Dropdown />
           {breakpoint.sm && (
             <NavLink href="/about" label={content.about[language]} />
           )}
@@ -60,3 +63,63 @@ const NavLink = ({ href, label }) => (
     <a className="font-medium mx-3">{label}</a>
   </Link>
 )
+
+const Dropdown = () => {
+  const [showDropdown, setShowDropdown] = useState(false)
+  return (
+    <>
+      {showDropdown && (
+        <div
+          onClick={() => setShowDropdown(false)}
+          className="fixed inset-0 z-10"
+        />
+      )}
+      <div className="flex flex-col mx-3">
+        <button
+          type="button"
+          onClick={() => setShowDropdown(!showDropdown)}
+          className="inline-flex items-center font-medium"
+        >
+          Restaurants
+          <ChevronDown
+            style={{ transform: 'translateY(1px)' }}
+            className="text-navy-light ml-2"
+          />
+        </button>
+        <div className="relative">
+          <AnimatePresence>
+            {showDropdown && (
+              <motion.ul
+                initial={{ opacity: 0, y: 0 }}
+                animate={{ opacity: 1, y: 8 }}
+                exit={{ opacity: 0, y: 0 }}
+                className="absolute left-0 top-0 z-20 w-48 bg-sand-light border border-sand"
+              >
+                <li className="w-full">
+                  <Link href="/map">
+                    <a className="group flex font-medium px-3 py-2 my-2">
+                      Map view
+                      <span className="flex-auto text-right text-sand-light group-hover:text-navy-light transition-color duration-150 ease-in-out">
+                        ⟶
+                      </span>
+                    </a>
+                  </Link>
+                </li>
+                <li className="w-full">
+                  <Link href="/list">
+                    <a className="group flex font-medium px-3 py-2 my-2">
+                      List view
+                      <span className="flex-auto text-right text-sand-light group-hover:text-navy-light transition-color duration-150 ease-in-out">
+                        ⟶
+                      </span>
+                    </a>
+                  </Link>
+                </li>
+              </motion.ul>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+    </>
+  )
+}

@@ -49,6 +49,7 @@ module.exports = {
   },
   variants: {
     margin: ['responsive', 'last'],
+    textColor: ['responsive', 'hover', 'focus', 'group-hover'],
   },
   plugins: [require('@tailwindcss/custom-forms')],
 }

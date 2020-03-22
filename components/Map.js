@@ -19,7 +19,7 @@ export default ({ restaurants }) => {
     lng: 12.571585,
   })
 
-  if (restaurants)
+  if (restaurants && !!restaurants.length)
     return (
       <LoadScriptNext googleMapsApiKey={googleMapsApiKey}>
         <GoogleMap
