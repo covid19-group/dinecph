@@ -22,13 +22,12 @@ export default function LanguageSelector() {
   const label = languages[opposite]
   return (
     <LanguageProvider>
-      <div className="relative inline-block text-left ml-4">
-        <div onClick={() => setLanguage(opposite)}>
-          <button className="text-left inline-flex justify-center flex-shrink-0 px-2 py-2 leading-5 font-medium transition ease-in-out duration-150">
-            {label}
-          </button>
-        </div>
-      </div>
+      <button
+        onClick={() => setLanguage(opposite)}
+        className="font-medium leading-normal"
+      >
+        {label}
+      </button>
     </LanguageProvider>
   )
 }

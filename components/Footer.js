@@ -9,9 +9,9 @@ export default () => {
   const content = pageContent[language]
   return (
     <footer className="px-3">
-      <div className="flex border-t-2 border-sand max-w-6xl py-12 mx-auto">
-        <div className="flex-1 mb-3">
-          <p className="">
+      <div className="flex flex-wrap md:flex-no-wrap items-baseline border-t-2 border-sand max-w-6xl py-12 mx-auto">
+        <div className="w-full mb-6 md:mb-0">
+          <p className="mb-3">
             {content.prefix}{' '}
             {
               // <a href="https://techvaernet.dk" target="_blank" rel="noopener">
@@ -52,7 +52,9 @@ export default () => {
             </a>
           </p>
         </div>
-        <LanguageSelector />
+        <div className="flex-shrink-0">
+          <LanguageSelector />
+        </div>
       </div>
     </footer>
   )
@@ -69,12 +71,12 @@ const pageContent = {
     prefix: 'Et initiativ af',
     and: 'og',
     built: 'Udviklet af',
-    os: "It's open source",
+    os: 'Det er open source',
   },
   'en-GB': {
     prefix: 'An initiative by',
     and: 'and',
     built: 'Built by',
-    os: 'Det er open source',
+    os: "It's open source",
   },
 }

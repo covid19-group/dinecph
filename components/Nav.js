@@ -15,7 +15,7 @@ export default () => {
         else: 'Tilføj din restaurant',
       },
       'en-GB': {
-        sm: 'Add',
+        sm: 'Submit',
         else: 'Add your restaurant',
       },
     },
