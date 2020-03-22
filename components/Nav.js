@@ -22,13 +22,13 @@ export default () => {
               </h2>
             </a>
           </Link>
-          <NavLink href="/map" label="Map" />
-          <NavLink href="/about" label="About" />
+          <NavLink href="/map" label="Kort" />
+          <NavLink href="/about" label="Om os" />
         </div>
         <div className="-mx-3">
           <NavLink
             href="/submit"
-            label={breakpoint.sm ? 'Submit your restaurant' : 'Submit'}
+            label={breakpoint.sm ? 'Tilføj din restaurant' : 'Tilføj'}
           />
         </div>
       </div>

@@ -13,12 +13,12 @@ export default () => (
         <div className="max-w-6xl flex mx-auto">
           <div className="flex-auto md:pt-16 md:pr-16">
             <h2 className="font-extrabold text-2xl sm:text-3xl leading-none mb-6">
-              About
+              Om os
             </h2>
             <p className="max-w-xl text-navy-light text-lg sm:text-xl mb-2">
-              The Covid-19 crisis has hit the restaurant scene of Copenhagen.
-              Many of them have started doing take-away as a response. We
-              created this site as a means to spread the word. Contact us at{' '}
+              Covid-19 krisen har ramt restaurant-scenen i København. Mange af
+              dem er begyndt at tilbyde take-away som en respons. Vi har lavet
+              den her side for at sprede ordet. Kontakt os på{' '}
               <a href="mailto:martin@pelion.app">martin@pelion.app</a>.
             </p>
           </div>
