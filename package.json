@@ -12,6 +12,7 @@
     "@react-google-maps/api": "^1.8.6",
     "@svgr/webpack": "^4.3.3",
     "@tailwindcss/custom-forms": "^0.2.1",
+    "airtable": "^0.8.1",
     "cssnano": "^4.1.10",
     "dotenv": "^8.2.0",
     "framer-motion": "^1.10.0",

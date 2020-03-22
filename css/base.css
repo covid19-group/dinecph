@@ -52,6 +52,9 @@ h6 {
 p {
   @apply leading-normal;
 }
+p > a {
+  @apply underline;
+}
 
 @tailwind components;
 

@@ -1,8 +1,8 @@
 import Head from 'next/head'
 
 export default ({ children }) => {
-  const title = 'Dine CPH'
-  const description = 'Dine CPH'
+  const title = 'DINE CPH'
+  const description = 'DINE CPH'
   return (
     <Head>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />

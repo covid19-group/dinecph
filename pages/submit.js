@@ -11,7 +11,7 @@ export default () => (
     </Head>
     <div className="min-h-screen flex flex-col">
       <Nav />
-      <main className="flex-auto pb-24">
+      <main style={{ marginBottom: '-2px' }} className="flex-auto">
         <iframe
           class="airtable-embed airtable-dynamic-height"
           src="https://airtable.com/embed/shrtTiPoFHQ5L8nRt?backgroundColor=red"
