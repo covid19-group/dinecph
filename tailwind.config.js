@@ -25,7 +25,7 @@ module.exports = {
       spacing: {
         '80': '20rem',
         '96': '24rem',
-        // '128': '32rem',
+        '128': '32rem',
       },
     },
     customForms: theme => ({

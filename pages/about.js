@@ -14,10 +14,17 @@ export default () => (
           <h2 className="font-extrabold text-2xl sm:text-3xl leading-none mb-6">
             Om os
           </h2>
-          <p className="max-w-xl text-navy-light text-lg sm:text-xl mb-2">
+          <p className="max-w-xl text-navy-light text-lg sm:text-xl mb-4">
             Covid-19 krisen har ramt restaurant-scenen i København. Mange af dem
             er begyndt at tilbyde take-away som en respons. Vi har lavet den her
-            side for at sprede ordet. Kontakt os på{' '}
+            side for at sprede ordet – inspireret af{' '}
+            <a href="https://cellars.nyc" target="_blank" rel="noopener">
+              cellars.nyc
+            </a>
+            .
+          </p>
+          <p className="max-w-xl text-navy-light text-lg sm:text-xl">
+            Kontakt os på{' '}
             <a href="mailto:martin@pelion.app">martin@pelion.app</a>.
           </p>
         </div>
