@@ -32,6 +32,11 @@ export default ({ restaurants }) => {
           <Tooltip tooltip={tooltip} setTooltip={setTooltip} />
           {restaurants.map(restaurant => {
             const position =
+              restaurant &&
+              restaurant.positionData &&
+              restaurant.positionData.results &&
+              !!restaurant.positionData.results.length &&
+              restaurant.positionData.results[0].geometry &&
               restaurant.positionData.results[0].geometry.location
             const display =
               process.env.NODE_ENV === 'production'
@@ -63,7 +68,14 @@ const Tooltip = ({ tooltip, setTooltip }) => {
   const delivery = tooltip.delivery || false
   const phone = tooltip.phone || undefined
   const url = tooltip.url || undefined
-  const position = tooltip && tooltip.positionData.results[0].geometry.location
+  const position =
+    (tooltip &&
+      tooltip.positionData &&
+      tooltip.positionData.results &&
+      !!tooltip.positionData.results.length &&
+      tooltip.positionData.results[0].geometry &&
+      tooltip.positionData.results[0].geometry.location) ||
+    false
   return (
     <AnimatePresence>
       {tooltip && (
