@@ -10,28 +10,8 @@ import { X } from 'react-feather'
 
 const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY
 
-export default () => {
+export default ({ pos }) => {
   const [tooltip, setTooltip] = useState(false)
-  const [pos, setPos] = useState(undefined)
-
-  const getPos = () => {
-    fetch(
-      'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-        'Ryesgade 25, Copenhagen N 2200, DK' +
-        '&key=' +
-        googleMapsApiKey
-    )
-      .then(res => res.json())
-      .then(res => {
-        setPos(res.results[0].geometry.location)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }
-  useEffect(() => {
-    getPos()
-  }, [])
 
   if (pos)
     return (
