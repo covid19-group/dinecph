@@ -7,18 +7,18 @@ export default ({ children }) => {
   return (
     <Head>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <link rel="icon" href="https://dinecph.now.sh/favicon.png" />
+      <link rel="icon" href="https://dinecph.dk/favicon.png" />
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="og:title" content={title} />
-      <meta name="og:site_name" content={title} />
-      <meta name="og:description" content={description} />
-      <meta name="og:image" content="https://dinecph.now.sh/og.png" />
+      <meta property="og:title" content={title} />
+      <meta property="og:site_name" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content="https://dinecph.dk/og-image.png" />
       <meta name="twitter:card" content="summary" />
       {/* <meta name="twitter:site" content="" /> */}
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content="/og.png" />
+      <meta name="twitter:image" content="https://dinecph.dk/og-image.png" />
       {process.env.NODE_ENV === 'production' && (
         <script
           dangerouslySetInnerHTML={{
