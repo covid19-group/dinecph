@@ -108,14 +108,14 @@ const Dropdown = ({ language }) => {
                 className="absolute left-0 top-0 z-20 w-48 bg-sand-light border border-sand"
               >
                 <li className="w-full">
-                  <Link
-                    onClick={() =>
-                      process.env.NODE_ENV === 'production' &&
-                      fathom('trackGoal', 'KJOAIHB0', 0)
-                    }
-                    href="/map"
-                  >
-                    <a className="group flex font-medium px-3 py-2 my-2">
+                  <Link href="/map">
+                    <a
+                      onClick={() =>
+                        process.env.NODE_ENV === 'production' &&
+                        fathom('trackGoal', 'KJOAIHB0', 0)
+                      }
+                      className="group flex font-medium px-3 py-2 my-2"
+                    >
                       {content.restaurants[language].map}
                       <span className="flex-auto text-right text-sand-light group-hover:text-navy-light transition-color duration-150 ease-in-out">
                         ⟶
@@ -124,14 +124,14 @@ const Dropdown = ({ language }) => {
                   </Link>
                 </li>
                 <li className="w-full">
-                  <Link
-                    onClick={() =>
-                      process.env.NODE_ENV === 'production' &&
-                      fathom('trackGoal', 'QKE3VOPK', 0)
-                    }
-                    href="/list"
-                  >
-                    <a className="group flex font-medium px-3 py-2 my-2">
+                  <Link href="/list">
+                    <a
+                      onClick={() =>
+                        process.env.NODE_ENV === 'production' &&
+                        fathom('trackGoal', 'QKE3VOPK', 0)
+                      }
+                      className="group flex font-medium px-3 py-2 my-2"
+                    >
                       {content.restaurants[language].list}
                       <span className="flex-auto text-right text-sand-light group-hover:text-navy-light transition-color duration-150 ease-in-out">
                         ⟶
