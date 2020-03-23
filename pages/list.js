@@ -63,6 +63,7 @@ export async function getStaticProps() {
 
 const ListItem = ({ restaurant }) => {
   const name = restaurant.name || undefined
+  const address = restaurant.address || undefined
   const description = restaurant.description || undefined
   const offerings = restaurant.offerings || undefined
   const delivery = restaurant.delivery || false
@@ -73,6 +74,7 @@ const ListItem = ({ restaurant }) => {
       <div className="h-full flex flex-col items-start border border-sand overflow-hidden p-4 sm:p-8 md:px-12">
         <div className="flex-auto">
           {name && <h3 className="text-xl sm:text-2xl mb-2">{name}</h3>}
+          {address && <p className="text-xs sm:text-sm mb-2">{address}</p>}
           {description && (
             <p className="max-w-2xl text-sm sm:text-base mb-4">{description}</p>
           )}
