@@ -25,7 +25,13 @@ export default () => {
               </p>
               <div className="pr-3 sm:pr-0 sm:-m-2">
                 <Link href="/map">
-                  <a className="w-full sm:w-auto h-12 btn btn-primary inline-flex items-center mb-3 sm:m-2">
+                  <a
+                    onClick={() =>
+                      process.env.NODE_ENV === 'production' &&
+                      fathom('trackGoal', 'BU7H7ONH', 0)
+                    }
+                    className="w-full sm:w-auto h-12 btn btn-primary inline-flex items-center mb-3 sm:m-2"
+                  >
                     {content.find}
                     <span className="inline sm:hidden flex-auto text-right">
                       ⟶

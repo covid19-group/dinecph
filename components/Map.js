@@ -117,6 +117,10 @@ const Tooltip = ({ tooltip, setTooltip }) => {
               {phone && <div className="mb-4">{phone}</div>}
               {url && (
                 <a
+                  onClick={() =>
+                    process.env.NODE_ENV === 'production' &&
+                    fathom('trackGoal', 'AV8TWGW5', 0)
+                  }
                   href={url.includes('http') ? url : 'https://' + url}
                   target="_blank"
                   rel="noopener noreferrer"

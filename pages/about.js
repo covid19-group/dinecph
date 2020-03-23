@@ -52,8 +52,8 @@ const pageContent = {
     webmaster: 'Ris og ros til hjemmesiden til ',
   },
   'en-GB': {
-    title: 'About os',
-    description: `The COVID-19 crisis has hit the Copenhagen restaurant scene hard. Many establishments have started offering take-out. We've made this site to help spread the word – inspired by `,
+    title: 'About',
+    description: `The COVID-19 crisis has hit the Copenhagen restaurant scene hard. Many establishments have started offering take-out. We've made this site to help spread the word — inspired by `,
     contact: 'Most inquiries: ',
     webmaster: 'Site feedback: ',
   },

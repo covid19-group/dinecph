@@ -6,23 +6,35 @@ import { ChevronDown, ChevronUp } from 'react-feather'
 import useBreakpoint from '../hooks/useBreakpoint'
 import { LanguageContext } from './LanguageSelector'
 
+const content = {
+  restaurants: {
+    'da-DK': {
+      label: 'Restauranter',
+      map: 'Se på kort',
+      list: 'Se på liste',
+    },
+    'en-GB': {
+      label: 'Restaurants',
+      map: 'Map view',
+      list: 'List view',
+    },
+  },
+  about: { 'da-DK': 'Om os', 'en-GB': 'About' },
+  submit: {
+    'da-DK': {
+      sm: 'Tilføj',
+      else: 'Tilføj din restaurant',
+    },
+    'en-GB': {
+      sm: 'Submit',
+      else: 'Add your restaurant',
+    },
+  },
+}
+
 export default () => {
   const breakpoint = useBreakpoint()
   const { language } = useContext(LanguageContext)
-  const content = {
-    map: { 'da-DK': 'Restauranter', 'en-GB': 'Restaurants' },
-    about: { 'da-DK': 'Om os', 'en-GB': 'About' },
-    submit: {
-      'da-DK': {
-        sm: 'Tilføj',
-        else: 'Tilføj din restaurant',
-      },
-      'en-GB': {
-        sm: 'Submit',
-        else: 'Add your restaurant',
-      },
-    },
-  }
   return (
     <nav className="px-3 py-6">
       <div className="max-w-6xl flex items-center mx-auto">
@@ -42,7 +54,7 @@ export default () => {
               </h2>
             </a>
           </Link>
-          <Dropdown />
+          <Dropdown language={language} />
           {breakpoint.sm && (
             <NavLink href="/about" label={content.about[language]} />
           )}
@@ -64,7 +76,7 @@ const NavLink = ({ href, label }) => (
   </Link>
 )
 
-const Dropdown = () => {
+const Dropdown = ({ language }) => {
   const [showDropdown, setShowDropdown] = useState(false)
   return (
     <>
@@ -80,7 +92,7 @@ const Dropdown = () => {
           onClick={() => setShowDropdown(!showDropdown)}
           className="inline-flex items-center font-medium"
         >
-          Restaurants
+          {content.restaurants[language].label}
           <ChevronDown
             style={{ transform: 'translateY(1px)' }}
             className="text-navy-light ml-2"
@@ -96,9 +108,15 @@ const Dropdown = () => {
                 className="absolute left-0 top-0 z-20 w-48 bg-sand-light border border-sand"
               >
                 <li className="w-full">
-                  <Link href="/map">
+                  <Link
+                    onClick={() =>
+                      process.env.NODE_ENV === 'production' &&
+                      fathom('trackGoal', 'KJOAIHB0', 0)
+                    }
+                    href="/map"
+                  >
                     <a className="group flex font-medium px-3 py-2 my-2">
-                      Map view
+                      {content.restaurants[language].map}
                       <span className="flex-auto text-right text-sand-light group-hover:text-navy-light transition-color duration-150 ease-in-out">
                         ⟶
                       </span>
@@ -106,9 +124,15 @@ const Dropdown = () => {
                   </Link>
                 </li>
                 <li className="w-full">
-                  <Link href="/list">
+                  <Link
+                    onClick={() =>
+                      process.env.NODE_ENV === 'production' &&
+                      fathom('trackGoal', 'QKE3VOPK', 0)
+                    }
+                    href="/list"
+                  >
                     <a className="group flex font-medium px-3 py-2 my-2">
-                      List view
+                      {content.restaurants[language].list}
                       <span className="flex-auto text-right text-sand-light group-hover:text-navy-light transition-color duration-150 ease-in-out">
                         ⟶
                       </span>
