@@ -81,10 +81,12 @@ const Tooltip = ({ tooltip, setTooltip }) => {
     <AnimatePresence>
       {tooltip && position && (
         <OverlayView
+          key={position}
           position={position}
           mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
         >
           <motion.div
+            key={tooltip.name}
             initial={{ opacity: 0, y: -28 }}
             animate={{ opacity: 1, y: -36 }}
             exit={{ opacity: 0, y: -32 }}
