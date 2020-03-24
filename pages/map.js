@@ -7,7 +7,10 @@ import Map from '../components/Map'
 
 const airtableApiKey = process.env.AIRTABLE_API_KEY
 const airtableBaseKey = process.env.AIRTABLE_BASE_KEY
-const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY
+const googleMapsApiKey =
+  process.env.NODE_ENV === 'production'
+    ? process.env.GOOGLE_MAPS_API_KEY
+    : undefined
 
 export default ({ restaurants }) => {
   return (

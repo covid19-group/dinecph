@@ -7,7 +7,6 @@ import Footer from '../components/Footer'
 
 const airtableApiKey = process.env.AIRTABLE_API_KEY
 const airtableBaseKey = process.env.AIRTABLE_BASE_KEY
-const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY
 
 export default ({ restaurants }) => {
   if (restaurants && !!restaurants.length)

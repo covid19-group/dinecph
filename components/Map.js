@@ -10,7 +10,10 @@ import { X } from 'react-feather'
 
 import LoadingSpinner from './LoadingSpinner'
 
-const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY
+const googleMapsApiKey =
+  process.env.NODE_ENV === 'production'
+    ? process.env.GOOGLE_MAPS_API_KEY
+    : undefined
 
 export default ({ restaurants }) => {
   const [tooltip, setTooltip] = useState(false)
@@ -46,6 +49,7 @@ export default ({ restaurants }) => {
                   onClick={() => setTooltip(restaurant)}
                 />
               )
+            // else console.log(restaurant)
             return null
           })}
         </GoogleMap>
