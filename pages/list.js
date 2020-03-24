@@ -99,10 +99,6 @@ const ListItem = ({ restaurant }) => {
         </div>
         {url && (
           <a
-            onClick={() =>
-              process.env.NODE_ENV === 'production' &&
-              fathom('trackGoal', 'NWXGO2MB', 0)
-            }
             href={url.includes('http') ? url : 'https://' + url}
             target="_blank"
             rel="noopener noreferrer"
