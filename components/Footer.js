@@ -44,7 +44,7 @@ export default () => {
             {' ⟶ '}
             <a
               className="ml-1"
-              href="https://github.com/sjwinther/techvaernet-restaurants"
+              href="https://github.com/covid19-group/dinecph"
               target="_blank"
               rel="noopener"
             >
