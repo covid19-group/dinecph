@@ -17,6 +17,7 @@ export default ({ restaurants }) => {
     lng: 12.571585,
   })
 
+  // Reducing number of requests to Maps API
   const restrictedGoogleMapsApiKey =
     process.env.NODE_ENV === 'production'
       ? process.env.RESTRICTED_GOOGLE_MAPS_API_KEY
