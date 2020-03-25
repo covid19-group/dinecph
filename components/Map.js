@@ -10,11 +10,6 @@ import { X } from 'react-feather'
 
 import LoadingSpinner from './LoadingSpinner'
 
-const googleMapsApiKey =
-  process.env.NODE_ENV === 'production'
-    ? process.env.GOOGLE_MAPS_API_KEY
-    : undefined
-
 export default ({ restaurants }) => {
   const [tooltip, setTooltip] = useState(false)
   const [copenhagen] = useState({
@@ -22,9 +17,14 @@ export default ({ restaurants }) => {
     lng: 12.571585,
   })
 
+  const restrictedGoogleMapsApiKey =
+    process.env.NODE_ENV === 'production'
+      ? process.env.RESTRICTED_GOOGLE_MAPS_API_KEY
+      : undefined
+
   if (restaurants && !!restaurants.length)
     return (
-      <LoadScriptNext googleMapsApiKey={googleMapsApiKey}>
+      <LoadScriptNext googleMapsApiKey={restrictedGoogleMapsApiKey}>
         <GoogleMap
           center={copenhagen}
           clickableIcons={false}
