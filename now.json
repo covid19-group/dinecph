@@ -3,7 +3,8 @@
     "env": {
       "AIRTABLE_API_KEY": "@airtable_api_key",
       "AIRTABLE_BASE_KEY": "@airtable_base_key",
-      "GOOGLE_MAPS_API_KEY": "@google_maps_api_key"
+      "GOOGLE_MAPS_API_KEY": "@google_maps_api_key",
+      "RESTRICTED_GOOGLE_MAPS_API_KEY": "@restricted_google_maps_api_key"
     }
   }
 }

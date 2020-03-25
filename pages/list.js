@@ -5,10 +5,6 @@ import Head from '../components/Head'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
-const airtableApiKey = process.env.AIRTABLE_API_KEY
-const airtableBaseKey = process.env.AIRTABLE_BASE_KEY
-const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY
-
 export default ({ restaurants }) => {
   if (restaurants && !!restaurants.length)
     return (
@@ -45,6 +41,9 @@ export default ({ restaurants }) => {
 }
 
 export async function getStaticProps() {
+  const airtableApiKey = process.env.AIRTABLE_API_KEY
+  const airtableBaseKey = process.env.AIRTABLE_BASE_KEY
+
   const Airtable = require('airtable')
   const airtable = new Airtable({
     apiKey: airtableApiKey,
