@@ -109,7 +109,7 @@ const Tooltip = ({ tooltip, setTooltip }) => {
               {name && <h3 className="text-base mb-2">{name}</h3>}
               {description && <p className="text-xs mb-3">{description}</p>}
               {offerings && !!offerings.length && (
-                <ul className="-m-1 mb-2">
+                <ul className="-m-1 mb-3">
                   {offerings.map(label => (
                     <li
                       key={label}
@@ -120,8 +120,8 @@ const Tooltip = ({ tooltip, setTooltip }) => {
                   ))}
                 </ul>
               )}
-              {delivery && <div className="mb-2">✓ Delivery available</div>}
-              {phone && <div className="mb-4">{phone}</div>}
+              {delivery && <div className="mb-3">✓ Delivery available</div>}
+              {phone && <div className="mb-3">{phone}</div>}
               {url && (
                 <a
                   onClick={() =>
@@ -131,7 +131,7 @@ const Tooltip = ({ tooltip, setTooltip }) => {
                   href={url.includes('http') ? url : 'https://' + url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary"
+                  className="btn btn-primary py-2"
                 >
                   View and order&nbsp;&nbsp;&nbsp;⟶
                 </a>
