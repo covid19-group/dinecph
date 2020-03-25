@@ -70,31 +70,31 @@ const ListItem = ({ restaurant }) => {
   const url = restaurant.url || undefined
   return (
     <li className="w-full md:w-1/2 p-3">
-      <div className="h-full flex flex-col items-start border border-sand overflow-hidden p-4 sm:p-8 md:px-12">
+      <div className="relative h-full flex flex-col items-start border border-sand overflow-hidden p-4 sm:p-8 md:px-12">
+        {delivery && (
+          <div className="absolute top-0 right-0 font-medium text-sm bg-sand border-b border-sand px-2 py-1 m-2">
+            ✓ Delivery available
+          </div>
+        )}
         <div className="flex-auto">
           {name && <h3 className="text-xl sm:text-2xl mb-2">{name}</h3>}
           {address && <p className="text-xs sm:text-sm mb-2">{address}</p>}
+          {phone && <p className="text-sm mb-4">{phone}</p>}
           {description && (
             <p className="max-w-2xl text-sm sm:text-base mb-4">{description}</p>
           )}
           {offerings && !!offerings.length && (
-            <ul className="-m-2 mb-2">
+            <ul className="-m-1 mb-6">
               {offerings.map(label => (
                 <li
                   key={label}
-                  className="inline-block font-medium text-sm sm:text-base bg-sand px-2 py-1 m-2"
+                  className="inline-block font-medium text-xs sm:text-sm bg-sand px-2 py-1 m-1"
                 >
                   {label}
                 </li>
               ))}
             </ul>
           )}
-          {delivery && (
-            <div className="text-sm sm:text-base mb-4">
-              ✓ Delivery available
-            </div>
-          )}
-          {phone && <div className="text-sm sm:text-base mb-4">{phone}</div>}
         </div>
         {url && (
           <a

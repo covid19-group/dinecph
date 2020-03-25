@@ -17,7 +17,10 @@ export default ({ restaurants }) => {
     lng: 12.571585,
   })
 
-  const restrictedGoogleMapsApiKey = process.env.RESTRICTED_GOOGLE_MAPS_API_KEY
+  const restrictedGoogleMapsApiKey =
+    process.env.NODE_ENV === 'production'
+      ? process.env.RESTRICTED_GOOGLE_MAPS_API_KEY
+      : undefined
 
   if (restaurants && !!restaurants.length)
     return (
@@ -104,7 +107,7 @@ const Tooltip = ({ tooltip, setTooltip }) => {
               {name && <h3 className="text-base mb-2">{name}</h3>}
               {description && <p className="text-xs mb-3">{description}</p>}
               {offerings && !!offerings.length && (
-                <ul className="-m-1 mb-2">
+                <ul className="-m-1 mb-3">
                   {offerings.map(label => (
                     <li
                       key={label}
@@ -115,14 +118,14 @@ const Tooltip = ({ tooltip, setTooltip }) => {
                   ))}
                 </ul>
               )}
-              {delivery && <div className="mb-2">✓ Delivery available</div>}
-              {phone && <div className="mb-4">{phone}</div>}
+              {delivery && <div className="mb-3">✓ Delivery available</div>}
+              {phone && <div className="mb-3">{phone}</div>}
               {url && (
                 <a
                   href={url.includes('http') ? url : 'https://' + url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary"
+                  className="btn btn-primary py-2"
                 >
                   View and order&nbsp;&nbsp;&nbsp;⟶
                 </a>
