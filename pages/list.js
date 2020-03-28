@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Promise from 'promise-polyfill'
 import fetch from 'isomorphic-unfetch'
 
@@ -6,26 +7,40 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export default ({ restaurants }) => {
+  const [filters, setFilters] = useState({})
   if (restaurants && !!restaurants.length)
     return (
       <>
         <Head />
-        <div className="h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col">
           <Nav />
           <main className="flex-auto px-3 pb-16">
             <div className="max-w-6xl mx-auto">
               <ul className="flex flex-wrap -m-3">
-                {restaurants.map(restaurant => {
-                  if (
-                    restaurant.display &&
-                    restaurant.name &&
-                    restaurant.description &&
-                    restaurant.url
+                {restaurants
+                  // Filter for necessary content
+                  .filter(
+                    restaurant =>
+                      restaurant.display &&
+                      restaurant.name &&
+                      restaurant.description &&
+                      restaurant.url
                   )
-                    return (
-                      <ListItem key={restaurant.name} restaurant={restaurant} />
-                    )
-                })}
+                  // Filter for delivery
+                  .filter(restaurant =>
+                    filters.delivery ? restaurant.delivery : true
+                  )
+                  // Filter for offerings
+                  .filter(restaurant =>
+                    filters.offerings
+                      ? !filters.offerings.every(
+                          offer => !restaurant.offerings.includes(offer)
+                        )
+                      : true
+                  )
+                  .map(restaurant => (
+                    <ListItem key={restaurant.name} restaurant={restaurant} />
+                  ))}
               </ul>
             </div>
           </main>
@@ -70,18 +85,13 @@ const ListItem = ({ restaurant }) => {
   const url = restaurant.url || undefined
   return (
     <li className="w-full md:w-1/2 p-3">
-      <div className="relative h-full flex flex-col items-start border border-sand overflow-hidden p-4 sm:p-8 md:px-12">
-        {delivery && (
-          <div className="absolute top-0 right-0 font-medium text-sm bg-sand border-b border-sand px-2 py-1 m-2">
-            ✓ Delivery available
-          </div>
-        )}
+      <div className="relative h-full flex flex-col items-start border border-sand overflow-hidden p-4 sm:p-8 lg:px-12">
         <div className="flex-auto">
           {name && <h3 className="text-xl sm:text-2xl mb-2">{name}</h3>}
           {address && <p className="text-xs sm:text-sm mb-2">{address}</p>}
           {phone && <p className="text-sm mb-4">{phone}</p>}
           {description && (
-            <p className="max-w-2xl text-sm sm:text-base mb-4">{description}</p>
+            <p className="max-w-xl text-sm sm:text-base mb-4">{description}</p>
           )}
           {offerings && !!offerings.length && (
             <ul className="-m-1 mb-6">
@@ -105,6 +115,11 @@ const ListItem = ({ restaurant }) => {
           >
             View and order&nbsp;&nbsp;&nbsp;⟶
           </a>
+        )}
+        {delivery && (
+          <div className="sm:absolute top-0 right-0 font-medium text-sm sm:bg-sand sm:border-b border-sand sm:px-2 sm:py-1 mt-4 sm:m-2">
+            ✓ Delivery available
+          </div>
         )}
       </div>
     </li>
