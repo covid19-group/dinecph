@@ -23,11 +23,11 @@ const content = {
   submit: {
     'da-DK': {
       sm: 'Tilføj',
-      else: 'Tilføj din restaurant',
+      else: 'For restauranter',
     },
     'en-GB': {
       sm: 'Submit',
-      else: 'Add your restaurant',
+      else: 'For restaurants',
     },
   },
 }
@@ -110,10 +110,11 @@ const Dropdown = ({ language }) => {
                 <li className="w-full">
                   <Link href="/map">
                     <a
-                      onClick={() =>
+                      onClick={() => {
+                        setShowDropdown(false)
                         process.env.NODE_ENV === 'production' &&
-                        fathom('trackGoal', 'KJOAIHB0', 0)
-                      }
+                          fathom('trackGoal', 'KJOAIHB0', 0)
+                      }}
                       className="group flex font-medium px-3 py-2 my-2"
                     >
                       {content.restaurants[language].map}
@@ -126,10 +127,11 @@ const Dropdown = ({ language }) => {
                 <li className="w-full">
                   <Link href="/list">
                     <a
-                      onClick={() =>
+                      onClick={() => {
+                        setShowDropdown(false)
                         process.env.NODE_ENV === 'production' &&
-                        fathom('trackGoal', 'QKE3VOPK', 0)
-                      }
+                          fathom('trackGoal', 'QKE3VOPK', 0)
+                      }}
                       className="group flex font-medium px-3 py-2 my-2"
                     >
                       {content.restaurants[language].list}
