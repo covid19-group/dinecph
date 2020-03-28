@@ -23,11 +23,11 @@ const content = {
   submit: {
     'da-DK': {
       sm: 'Tilføj',
-      else: 'Tilføj din restaurant',
+      else: 'For restauranter',
     },
     'en-GB': {
       sm: 'Submit',
-      else: 'Add your restaurant',
+      else: 'For restaurants',
     },
   },
 }
@@ -109,7 +109,10 @@ const Dropdown = ({ language }) => {
               >
                 <li className="w-full">
                   <Link href="/map">
-                    <a className="group flex font-medium px-3 py-2 my-2">
+                    <a
+                      onClick={() => setShowDropdown(false)}
+                      className="group flex font-medium px-3 py-2 my-2"
+                    >
                       {content.restaurants[language].map}
                       <span className="flex-auto text-right text-sand-light group-hover:text-navy-light transition-color duration-150 ease-in-out">
                         ⟶
@@ -119,7 +122,10 @@ const Dropdown = ({ language }) => {
                 </li>
                 <li className="w-full">
                   <Link href="/list">
-                    <a className="group flex font-medium px-3 py-2 my-2">
+                    <a
+                      onClick={() => setShowDropdown(false)}
+                      className="group flex font-medium px-3 py-2 my-2"
+                    >
                       {content.restaurants[language].list}
                       <span className="flex-auto text-right text-sand-light group-hover:text-navy-light transition-color duration-150 ease-in-out">
                         ⟶
