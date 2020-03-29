@@ -14,7 +14,7 @@ export default () => {
       <Head />
       <div className="min-h-screen flex flex-col">
         <Nav />
-        <main className="flex-auto px-3 py-16">
+        <main className="flex-auto px-3 pt-8 sm:pt-16 pb-16">
           <div className="max-w-6xl mx-auto">
             <h2 className="font-extrabold text-2xl sm:text-3xl leading-none mb-6">
               {content.title}

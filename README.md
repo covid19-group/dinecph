@@ -18,6 +18,6 @@ You will need:
 
 Run `npm run dev` (or `yarn dev`) to start the development loop.
 
-## Development
+## Deployment
 
 The Copenhagen project is deployed with [Zeit Now](https://zeit.co/home), utilising [Now Secrets](https://zeit.co/docs/v2/build-step#using-environment-variables-and-secrets) (see now.json file), but could be deployed wherever.
