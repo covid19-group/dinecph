@@ -1,18 +1,44 @@
+import { useContext } from 'react'
 import Promise from 'promise-polyfill'
 import fetch from 'isomorphic-unfetch'
 
+import { LanguageContext } from '../components/LanguageSelector'
 import Head from '../components/Head'
 import Nav from '../components/Nav'
 import Map from '../components/Map'
 
+const pageContent = {
+  'da-DK': {
+    offers: {
+      Food: 'Mad',
+      Wine: 'Vin',
+      Drinks: 'Drikkevarer',
+      Giftcards: 'Gavekort',
+    },
+    orderLabel: 'Besøg og bestil',
+  },
+  'en-GB': {
+    offers: {
+      Food: 'Food',
+      Wine: 'Wine',
+      Drinks: 'Drinks',
+      Giftcards: 'Giftcards',
+    },
+    orderLabel: 'View and order',
+  },
+}
+
 export default ({ restaurants }) => {
+  const { language } = useContext(LanguageContext)
+  const content = pageContent[language]
+
   return (
     <>
       <Head />
       <div className="h-screen flex flex-col">
         <Nav />
         <main className="flex-auto">
-          <Map restaurants={restaurants} />
+          <Map restaurants={restaurants} content={content} />
         </main>
       </div>
     </>

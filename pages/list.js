@@ -10,7 +10,7 @@ import Footer from '../components/Footer'
 const pageContent = {
   'da-DK': {
     title: 'Restauranter',
-    offersLabel: 'Tilbyder',
+    offersLabel: 'Tilbud',
     offers: {
       Food: 'Mad',
       Wine: 'Vin',

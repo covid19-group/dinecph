@@ -10,7 +10,7 @@ import { X } from 'react-feather'
 
 import LoadingSpinner from './LoadingSpinner'
 
-export default ({ restaurants }) => {
+export default ({ restaurants, content }) => {
   const [tooltip, setTooltip] = useState(false)
   const [copenhagen] = useState({
     lat: 55.6836692,
@@ -33,7 +33,11 @@ export default ({ restaurants }) => {
           mapContainerStyle={{ height: 'calc( 100vh - 85px)' }}
           zoom={13}
         >
-          <Tooltip tooltip={tooltip} setTooltip={setTooltip} />
+          <Tooltip
+            tooltip={tooltip}
+            setTooltip={setTooltip}
+            content={content}
+          />
           {restaurants.map(restaurant => {
             const position =
               restaurant &&
@@ -62,14 +66,14 @@ export default ({ restaurants }) => {
   )
 }
 
-const Tooltip = ({ tooltip, setTooltip }) => {
+const Tooltip = ({ tooltip, setTooltip, content }) => {
   const name = tooltip.name || undefined
   const description = tooltip.description
     ? tooltip.description.length > 140
       ? tooltip.description.slice(0, 140) + ' ...'
       : tooltip.description
     : undefined
-  const offerings = tooltip.offerings || undefined
+  const offers = tooltip.offerings || undefined
   const delivery = tooltip.delivery || false
   const phone = tooltip.phone || undefined
   const url = tooltip.url || undefined
@@ -107,14 +111,14 @@ const Tooltip = ({ tooltip, setTooltip }) => {
 
               {name && <h3 className="text-base mb-2">{name}</h3>}
               {description && <p className="text-xs mb-3">{description}</p>}
-              {offerings && !!offerings.length && (
+              {offers && !!offers.length && (
                 <ul className="-m-1 mb-3">
-                  {offerings.map(label => (
+                  {offers.map(offer => (
                     <li
-                      key={label}
+                      key={offer}
                       className="inline-block font-medium bg-sand px-2 py-1 m-1"
                     >
-                      {label}
+                      {content.offers[offer]}
                     </li>
                   ))}
                 </ul>
@@ -128,7 +132,7 @@ const Tooltip = ({ tooltip, setTooltip }) => {
                   rel="noopener noreferrer"
                   className="btn btn-primary py-2"
                 >
-                  View and order&nbsp;&nbsp;&nbsp;⟶
+                  {content.orderLabel}&nbsp;&nbsp;&nbsp;⟶
                 </a>
               )}
 
