@@ -154,7 +154,7 @@ const Dropdown = ({ align, items, label }) => {
                       <a
                         onClick={() => {
                           setShowDropdown(false)
-                          onClick()
+                          onClick && onClick()
                         }}
                         className="group flex font-medium px-3 py-2 my-2"
                       >
