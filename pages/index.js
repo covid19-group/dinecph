@@ -23,7 +23,7 @@ export default () => {
               <p className="max-w-xl text-navy-light text-base sm:text-lg md:text-xl mb-8">
                 {content.description}
               </p>
-              <div className="pr-3 sm:pr-0 sm:-m-2">
+              <div className="sm:-m-2">
                 <Link href="/map">
                   <a className="w-full sm:w-auto h-12 btn btn-primary inline-flex items-center mb-3 sm:m-2">
                     {content.find}

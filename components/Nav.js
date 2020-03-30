@@ -20,15 +20,21 @@ const content = {
     },
   },
   about: { 'da-DK': 'Om os', 'en-GB': 'About' },
-  submit: {
+  forRestaurants: {
     'da-DK': {
-      sm: 'Tilføj',
-      else: 'For restauranter',
+      label: 'For restauranter',
+      resources: 'Ressourcer',
+      submit: 'Tilføj',
     },
     'en-GB': {
-      sm: 'Submit',
-      else: 'For restaurants',
+      label: 'For restaurants',
+      resources: 'Resources',
+      submit: 'Submit',
     },
+  },
+  submit: {
+    'da-DK': 'Tilføj',
+    'en-GB': 'Submit',
   },
 }
 
@@ -54,16 +60,36 @@ export default () => {
               </h2>
             </a>
           </Link>
-          <Dropdown language={language} />
+          <Dropdown
+            items={[
+              { href: '/map', label: content.restaurants[language].map },
+              { href: '/list', label: content.restaurants[language].list },
+            ]}
+            label={content.restaurants[language].label}
+          />
           {breakpoint.sm && (
             <NavLink href="/about" label={content.about[language]} />
           )}
         </div>
         <div className="-mx-3">
-          <NavLink
-            href="/submit"
-            label={content.submit[language][breakpoint.sm ? 'else' : 'sm']}
-          />
+          {breakpoint.sm ? (
+            <Dropdown
+              align="right-0"
+              items={[
+                {
+                  href: '/resources',
+                  label: content.forRestaurants[language].resources,
+                },
+                {
+                  href: '/submit',
+                  label: content.forRestaurants[language].submit,
+                },
+              ]}
+              label={content.forRestaurants[language].label}
+            />
+          ) : (
+            <NavLink href="/submit" label={content.submit[language]} />
+          )}
         </div>
       </div>
     </nav>
@@ -76,7 +102,7 @@ const NavLink = ({ href, label }) => (
   </Link>
 )
 
-const Dropdown = ({ language }) => {
+const Dropdown = ({ align, items, label }) => {
   const [showDropdown, setShowDropdown] = useState(false)
   return (
     <>
@@ -92,7 +118,7 @@ const Dropdown = ({ language }) => {
           onClick={() => setShowDropdown(!showDropdown)}
           className="inline-flex items-center font-medium"
         >
-          {content.restaurants[language].label}
+          {label}
           <ChevronDown
             style={{ transform: 'translateY(1px)' }}
             className="text-navy-light ml-2"
@@ -105,34 +131,26 @@ const Dropdown = ({ language }) => {
                 initial={{ opacity: 0, y: 0 }}
                 animate={{ opacity: 1, y: 8 }}
                 exit={{ opacity: 0, y: 0 }}
-                className="absolute left-0 top-0 z-20 w-48 bg-sand-light border border-sand"
+                className={
+                  (align ? align + ' ' : 'left-0 ') +
+                  'absolute top-0 z-20 w-48 bg-sand-light border border-sand'
+                }
               >
-                <li className="w-full">
-                  <Link href="/map">
-                    <a
-                      onClick={() => setShowDropdown(false)}
-                      className="group flex font-medium px-3 py-2 my-2"
-                    >
-                      {content.restaurants[language].map}
-                      <span className="flex-auto text-right text-sand-light group-hover:text-navy-light transition-color duration-150 ease-in-out">
-                        ⟶
-                      </span>
-                    </a>
-                  </Link>
-                </li>
-                <li className="w-full">
-                  <Link href="/list">
-                    <a
-                      onClick={() => setShowDropdown(false)}
-                      className="group flex font-medium px-3 py-2 my-2"
-                    >
-                      {content.restaurants[language].list}
-                      <span className="flex-auto text-right text-sand-light group-hover:text-navy-light transition-color duration-150 ease-in-out">
-                        ⟶
-                      </span>
-                    </a>
-                  </Link>
-                </li>
+                {items.map(({ href, label }) => (
+                  <li key={label} className="w-full">
+                    <Link href={href}>
+                      <a
+                        onClick={() => setShowDropdown(false)}
+                        className="group flex font-medium px-3 py-2 my-2"
+                      >
+                        {label}
+                        <span className="flex-auto text-right text-sand-light group-hover:text-navy-light transition-color duration-150 ease-in-out">
+                          ⟶
+                        </span>
+                      </a>
+                    </Link>
+                  </li>
+                ))}
               </motion.ul>
             )}
           </AnimatePresence>
