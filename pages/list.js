@@ -121,6 +121,7 @@ export default ({ restaurants }) => {
                     }
                     return (
                       <label
+                        key={offer}
                         className={
                           'inline-block font-medium border-2 border-navy cursor-pointer px-2 py-1 m-1' +
                           (isChecked
