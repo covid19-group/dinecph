@@ -16,17 +16,20 @@ export default () => {
       </Head>
       <div className="min-h-screen flex flex-col">
         <Nav />
-        <main style={{ marginBottom: '-2px' }} className="flex-auto px-3 pt-16">
+        <main
+          style={{ marginBottom: '-2px' }}
+          className="flex-auto px-3 pt-8 sm:pt-16"
+        >
           <div className="max-w-6xl mx-auto">
             <h2 className="font-extrabold text-2xl sm:text-3xl leading-none mb-6">
-              {content.title}
+              {content.resourcesTitle}
             </h2>
             <p className="max-w-xl text-navy-light text-lg mb-8">
-              {content.description}{' '}
+              {content.resourcesDescription}{' '}
               <a href="mailto:sebastianwinther@gmail.com">{content.contact}</a>.
             </p>
             <ul className="mb-16">
-              {resourceList.map(
+              {resourcesList.map(
                 ({ title, description, actionLabel, actionUrl }) => (
                   <li className="flex flex-col items-start border border-sand overflow-hidden p-4 sm:p-8 md:px-12 mb-4 last:mb-0">
                     {title && (
@@ -51,12 +54,12 @@ export default () => {
                 )
               )}
             </ul>
-            <h3
+            <h2
               id="add"
               className="font-extrabold text-2xl sm:text-3xl leading-none mb-6"
             >
-              {content.add}
-            </h3>
+              {content.submitTitle}
+            </h2>
           </div>
           <iframe
             className="airtable-embed airtable-dynamic-height"
@@ -76,22 +79,22 @@ export default () => {
 
 const pageContent = {
   'da-DK': {
-    title: 'Til restauranter',
-    description:
+    resourcesTitle: 'Ressourcer',
+    resourcesDescription:
       'Vi har listet et par ressourcer, som måske kan være hjælpsomme nedenfor. Har du nogle tilføjelser?',
     contact: 'Skriv til os',
-    add: 'Tilføj din restaurant til Dine CPH',
+    submitTitle: 'Tilføj din restaurant',
   },
   'en-GB': {
-    title: 'For restaurants',
-    description:
+    resourcesTitle: 'Resources',
+    resourcesDescription:
       "We've added a few resources that might be useful for restaurants at this time. Do you know of others that we should add?",
     contact: 'Get in touch',
-    add: 'Add your restaurant to Dine CPH',
+    submitTitle: 'Add your restaurant',
   },
 }
 
-const resourceList = [
+const resourcesList = [
   {
     title: 'Superb Corona Support Programme',
     description:

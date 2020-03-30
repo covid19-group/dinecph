@@ -31,14 +31,18 @@ module.exports = {
     customForms: theme => ({
       default: {
         'checkbox, input, multiselect, radio, select, textarea': {
+          backgroundColor: theme('color.sand-light'),
+          borderColor: theme('colors.navy'),
+          borderRadius: theme('borderRadius.none'),
+          borderWidth: theme('borderWidth.2'),
           '&:focus': {
-            borderColor: theme('colors.blue.500'),
+            borderColor: theme('colors.navy'),
             boxShadow: theme('boxShadow.outline'),
           },
         },
         'checkbox, radio': {
           '&:checked': {
-            backgroundColor: theme('colors.blue.500'),
+            backgroundColor: theme('colors.navy'),
           },
         },
         'input, multiselect, select, textarea': {
