@@ -65,14 +65,14 @@ export default () => {
               {
                 href: '/map',
                 label: content.restaurants[language].map,
-                onClick:
+                onClick: () =>
                   process.env.NODE_ENV === 'production' &&
                   fathom('trackGoal', 'KJOAIHB0', 0),
               },
               {
                 href: '/list',
                 label: content.restaurants[language].list,
-                onClick:
+                onClick: () =>
                   process.env.NODE_ENV === 'production' &&
                   fathom('trackGoal', 'QKE3VOPK', 0),
               },
