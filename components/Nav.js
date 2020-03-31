@@ -2,6 +2,7 @@ import { useContext, useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, ChevronUp } from 'react-feather'
+import Logo from '../assets/logo.svg'
 
 import useBreakpoint from '../hooks/useBreakpoint'
 import { LanguageContext } from './LanguageSelector'
@@ -47,14 +48,10 @@ export default () => {
         <div className="flex-auto flex items-center -mx-3">
           <Link href="/">
             <a className="inline-flex items-center mx-3 sm:mr-6">
-              <span
-                role="img"
-                aria-label="Wine glass"
-                style={{ transform: 'rotate(15deg) translateY(-2px)' }}
-                className="text-3xl sm:mr-3"
-              >
-                🍷
-              </span>
+              <Logo
+                style={{ transform: 'translateY(-1px)' }}
+                className="stroke-none text-3xl sm:mr-1"
+              />
               <h2 className="hidden sm:inline-block font-extrabold text-2xl">
                 Dine CPH
               </h2>
