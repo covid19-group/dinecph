@@ -26,6 +26,9 @@ svg {
 svg * {
   @apply stroke-current;
 }
+svg.stroke-none * {
+  stroke: none;
+}
 svg.fill * {
   @apply fill-current;
   stroke: none;
