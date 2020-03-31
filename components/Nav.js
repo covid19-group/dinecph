@@ -2,10 +2,10 @@ import { useContext, useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, ChevronUp } from 'react-feather'
-import Logo from '../assets/logo.svg'
 
 import useBreakpoint from '../hooks/useBreakpoint'
 import { LanguageContext } from './LanguageSelector'
+import Logo from './Logo'
 
 const content = {
   restaurants: {
@@ -42,14 +42,21 @@ const content = {
 export default () => {
   const breakpoint = useBreakpoint()
   const { language } = useContext(LanguageContext)
+
+  const [isLogoHovered, setIsLogoHovered] = useState(false)
+
   return (
     <nav className="px-3 py-6">
       <div className="max-w-6xl flex items-center mx-auto">
         <div className="flex-auto flex items-center -mx-3">
           <Link href="/">
-            <a className="inline-flex items-center mx-3 sm:mr-6">
+            <a
+              onMouseOver={() => setIsLogoHovered(true)}
+              onMouseLeave={() => setIsLogoHovered(false)}
+              className="inline-flex items-center ml-3 sm:mr-6"
+            >
               <Logo
-                style={{ transform: 'translateY(-1px)' }}
+                isHovered={isLogoHovered}
                 className="stroke-none text-3xl sm:mr-1"
               />
               <h2 className="hidden sm:inline-block font-extrabold text-2xl">
