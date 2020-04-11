@@ -10,6 +10,15 @@ import Footer from '../components/Footer'
 const pageContent = {
   'da-DK': {
     title: 'Restauranter',
+    neighbourhoodLabel: 'Nabolag',
+    neighbourhoods: {
+      ['Nørrebro']: 'Nørrebro',
+      ['Østerbro']: 'Østerbro',
+      ['Vesterbro']: 'Vesterbro',
+      ['Inner city']: 'Indre by',
+      ['Amager']: 'Amager',
+      ['Frederiksberg']: 'Frederiksberg',
+    },
     offersLabel: 'Tilbud',
     offers: {
       Food: 'Mad',
@@ -22,6 +31,15 @@ const pageContent = {
   },
   'en-GB': {
     title: 'Restaurants',
+    neighbourhoodLabel: 'Neighbourhood',
+    neighbourhoods: {
+      ['Nørrebro']: 'Nørrebro',
+      ['Østerbro']: 'Østerbro',
+      ['Vesterbro']: 'Vesterbro',
+      ['Inner city']: 'Inner city',
+      ['Amager']: 'Amager',
+      ['Frederiksberg']: 'Frederiksberg',
+    },
     offersLabel: 'Offers',
     offers: {
       Food: 'Food',
@@ -38,6 +56,7 @@ const ListItem = ({ restaurant, content }) => {
   const name = restaurant.name || undefined
   const address = restaurant.address || undefined
   const description = restaurant.description || undefined
+  const neighbourhood = restaurant.neighbourhood || undefined
   const offers = restaurant.offerings || undefined
   const delivery = restaurant.delivery || false
   const phone = restaurant.phone || undefined
@@ -46,7 +65,12 @@ const ListItem = ({ restaurant, content }) => {
     <li className="w-full md:w-1/2 p-3">
       <div className="relative h-full flex flex-col items-start border border-sand overflow-hidden p-4 sm:p-8 lg:px-12">
         <div className="flex-auto">
-          {name && <h3 className="text-xl sm:text-2xl mb-2">{name}</h3>}
+          {name && <h3 className="text-xl sm:text-2xl">{name}</h3>}
+          {neighbourhood && (
+            <p className="text-xs sm:text-sm mb-4">
+              {content.neighbourhoods[neighbourhood]}
+            </p>
+          )}
           {address && <p className="text-xs sm:text-sm mb-2">{address}</p>}
           {phone && <p className="text-sm mb-4">{phone}</p>}
           {description && (
@@ -89,12 +113,30 @@ const ListItem = ({ restaurant, content }) => {
   )
 }
 
+const FilterLabel = ({ handleChange, isChecked, label }) => (
+  <label
+    className={
+      'inline-block font-medium border-2 border-navy cursor-pointer px-2 py-1 m-1' +
+      (isChecked ? ' text-sand-light bg-navy' : ' text-navy')
+    }
+  >
+    <input
+      type="checkbox"
+      checked={isChecked}
+      onChange={handleChange}
+      className="sr-only"
+    />
+    <span className="select-none">{label}</span>
+  </label>
+)
+
 export default ({ restaurants }) => {
   const { language } = useContext(LanguageContext)
   const content = pageContent[language]
 
   const [filterDelivery, setFilterDelivery] = useState(false)
   const [filterOffers, setFilterOffers] = useState([])
+  const [filterNeighbourhood, setFilterNeighbourhood] = useState('')
 
   if (restaurants && !!restaurants.length)
     return (
@@ -107,55 +149,67 @@ export default ({ restaurants }) => {
               <h2 className="flex-auto font-extrabold text-2xl sm:text-3xl leading-none mb-4 sm:mb-6">
                 {content.title}
               </h2>
-              <div className="flex flex-wrap sm:flex-no-wrap items-end -m-1 mb-6">
-                <div className="w-full flex flex-wrap items-center mb-4 sm:mb-0">
-                  <p className="w-full sm:w-auto font-medium m-1 mr-2">
-                    {content.offersLabel}
-                  </p>
-                  {['Food', 'Wine', 'Drinks', 'Giftcards'].map(offer => {
-                    const isChecked = filterOffers.includes(offer)
-                    const handleChange = () => {
-                      if (isChecked) {
-                        const newOffers = [...filterOffers]
-                        newOffers.splice(newOffers.indexOf(offer), 1)
-                        setFilterOffers(newOffers)
-                      } else {
-                        setFilterOffers([...filterOffers, offer])
-                      }
-                    }
-                    return (
-                      <label
-                        key={offer}
-                        className={
-                          'inline-block font-medium border-2 border-navy cursor-pointer px-2 py-1 m-1' +
-                          (isChecked
-                            ? ' text-sand-light bg-navy'
-                            : ' text-navy')
-                        }
-                      >
-                        <input
-                          type="checkbox"
-                          checked={isChecked}
-                          onChange={handleChange}
-                          className="sr-only"
-                        />
-                        <span className="select-none">
-                          {content.offers[offer]}
-                        </span>
-                      </label>
-                    )
-                  })}
-                </div>
-                <label className="flex-shrink-0 inline-flex items-center font-medium cursor-pointer m-1">
-                  <input
-                    type="checkbox"
-                    checked={filterDelivery}
-                    onChange={() => setFilterDelivery(!filterDelivery)}
-                    className="form-checkbox mr-2"
-                  />
-                  <span className="select-none">{content.delivery}</span>
-                </label>
+              <div className="flex flex-wrap items-center -m-1 mb-4">
+                <p className="w-full md:w-auto font-medium m-1 mr-2">
+                  {content.neighbourhoodLabel}
+                </p>
+                {[
+                  'Nørrebro',
+                  'Østerbro',
+                  'Vesterbro',
+                  'Inner city',
+                  'Amager',
+                  'Frederiksberg',
+                ].map(neighbourhood => {
+                  const isChecked = filterNeighbourhood === neighbourhood
+                  const handleChange = () => {
+                    if (isChecked) setFilterNeighbourhood('')
+                    else setFilterNeighbourhood(neighbourhood)
+                  }
+                  return (
+                    <FilterLabel
+                      key={neighbourhood}
+                      handleChange={handleChange}
+                      isChecked={isChecked}
+                      label={content.neighbourhoods[neighbourhood]}
+                    />
+                  )
+                })}
               </div>
+              <div className="w-full flex flex-wrap items-center -m-1 mb-4">
+                <p className="w-full md:w-auto font-medium m-1 mr-2">
+                  {content.offersLabel}
+                </p>
+                {['Food', 'Wine', 'Drinks', 'Giftcards'].map(offer => {
+                  const isChecked = filterOffers.includes(offer)
+                  const handleChange = () => {
+                    if (isChecked) {
+                      const newOffers = [...filterOffers]
+                      newOffers.splice(newOffers.indexOf(offer), 1)
+                      setFilterOffers(newOffers)
+                    } else {
+                      setFilterOffers([...filterOffers, offer])
+                    }
+                  }
+                  return (
+                    <FilterLabel
+                      key={offer}
+                      handleChange={handleChange}
+                      isChecked={isChecked}
+                      label={content.offers[offer]}
+                    />
+                  )
+                })}
+              </div>
+              <label className="inline-flex items-center font-medium cursor-pointer mb-6">
+                <span className="select-none mr-2">{content.delivery}</span>
+                <input
+                  type="checkbox"
+                  checked={filterDelivery}
+                  onChange={() => setFilterDelivery(!filterDelivery)}
+                  className="form-checkbox"
+                />
+              </label>
               <ul className="flex flex-wrap -m-3">
                 {restaurants
                   // Filter for necessary content
@@ -166,9 +220,11 @@ export default ({ restaurants }) => {
                       restaurant.description &&
                       restaurant.url
                   )
-                  // Filter for delivery
+                  // Filter for neighbourhood
                   .filter(restaurant =>
-                    filterDelivery ? restaurant.delivery : true
+                    filterNeighbourhood
+                      ? restaurant.neighbourhood === filterNeighbourhood
+                      : true
                   )
                   // Filter for offers
                   .filter(restaurant =>
@@ -177,6 +233,10 @@ export default ({ restaurants }) => {
                           restaurant.offerings.includes(offer)
                         )
                       : true
+                  )
+                  // Filter for delivery
+                  .filter(restaurant =>
+                    filterDelivery ? restaurant.delivery : true
                   )
                   .map(restaurant => (
                     <ListItem
