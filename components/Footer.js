@@ -67,6 +67,10 @@ export default () => {
           <a href="https://jantarada.pt" target="_blank" rel="noopener">
             Portugal
           </a>
+          {', '}
+          <a href="https://llegamosatucasa.com" target="_blank" rel="noopener">
+            Lima
+          </a>
         </p>
         <p className="border-t-2 border-sand py-8">
           {content.os}
