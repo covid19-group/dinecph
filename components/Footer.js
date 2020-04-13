@@ -58,8 +58,8 @@ export default () => {
           </a>
           .
         </p>
-        <p>
-          Dine in:{' '}
+        <p className="mb-12">
+          {content.dinePrefix}{' '}
           <a href="https://dineinberlin.com" target="_blank" rel="noopener">
             Berlin
           </a>
