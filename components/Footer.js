@@ -3,14 +3,31 @@ import LanguageSelector, { LanguageContext } from './LanguageSelector'
 import Link from 'next/link'
 import useBreakpoint from '../hooks/useBreakpoint'
 
+const pageContent = {
+  'da-DK': {
+    prefix: 'Et initiativ af',
+    and: 'og',
+    built: 'Udviklet af',
+    os: 'Det er open source',
+    dinePrefix: 'Spis i',
+  },
+  'en-GB': {
+    prefix: 'An initiative by',
+    and: 'and',
+    built: 'Built by',
+    os: "It's open source",
+    dinePrefix: 'Dine in',
+  },
+}
+
 export default () => {
   const breakpoint = useBreakpoint()
   const { language } = useContext(LanguageContext)
   const content = pageContent[language]
   return (
     <footer className="px-3">
-      <div className="max-w-6xl border-t-2 border-sand py-12 mx-auto">
-        <div className="mb-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="border-t-2 border-sand pt-10 mb-4">
           <LanguageSelector />
         </div>
         <p className="mb-4">
@@ -41,7 +58,17 @@ export default () => {
           </a>
           .
         </p>
-        <p className="mb-8">
+        <p>
+          Dine in:{' '}
+          <a href="https://dineinberlin.com" target="_blank" rel="noopener">
+            Berlin
+          </a>
+          {', '}
+          <a href="https://jantarada.pt" target="_blank" rel="noopener">
+            Portugal
+          </a>
+        </p>
+        <p className="border-t-2 border-sand py-8">
           {content.os}
           {' ⟶ '}
           <a
@@ -53,32 +80,7 @@ export default () => {
             GitHub
           </a>
         </p>
-        <p>
-          Dine in:{' '}
-          <a href="https://dineinberlin.com" target="_blank" rel="noopener">
-            Berlin
-          </a>
-          {', '}
-          <a href="https://jantarada.pt" target="_blank" rel="noopener">
-            Portugal
-          </a>
-        </p>
       </div>
     </footer>
   )
-}
-
-const pageContent = {
-  'da-DK': {
-    prefix: 'Et initiativ af',
-    and: 'og',
-    built: 'Udviklet af',
-    os: 'Det er open source',
-  },
-  'en-GB': {
-    prefix: 'An initiative by',
-    and: 'and',
-    built: 'Built by',
-    os: "It's open source",
-  },
 }
