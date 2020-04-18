@@ -21,3 +21,11 @@ Run `npm run dev` (or `yarn dev`) to start the development loop.
 ## Deployment
 
 The Copenhagen project is deployed with [Zeit Now](https://zeit.co/home), utilising [Now Secrets](https://zeit.co/docs/v2/build-step#using-environment-variables-and-secrets) (see now.json file), but could be deployed wherever.
+
+## Local projects
+
+- [x] [Berlin](https://dineinberlin.com)
+- [x] [Portugal](https://jantarada.pt)
+- [x] [Lima](https://llegamosatucasa.com)
+- [x] [Honduras](https://vamosatucasa.com/)
+- [ ] Your city
