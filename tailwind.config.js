@@ -1,4 +1,5 @@
 module.exports = {
+  purge: ['./components/**/*.js', './pages/**/*.js'],
   theme: {
     colors: {
       // https://www.happyhues.co/palettes/17

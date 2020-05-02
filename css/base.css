@@ -1,8 +1,6 @@
 @import url('https://rsms.me/inter/inter.css');
 @import url('/optician/optician.css');
 
-/* purgecss start ignore */
-
 @tailwind base;
 
 /* Boilerplate */
@@ -72,8 +70,6 @@ p > a {
 .btn-secondary {
   @apply text-navy-light bg-teal;
 }
-
-/* purgecss end ignore */
 
 @tailwind utilities;
 
